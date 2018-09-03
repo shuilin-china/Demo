@@ -15,6 +15,7 @@
 		44797EAB213D2FC300DDA614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44797EA9213D2FC300DDA614 /* LaunchScreen.storyboard */; };
 		44797EB6213D2FC300DDA614 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44797EB5213D2FC300DDA614 /* DemoTests.swift */; };
 		44797EC1213D2FC300DDA614 /* DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44797EC0213D2FC300DDA614 /* DemoUITests.swift */; };
+		44797F1F213D45C900DDA614 /* DMUIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44797F1E213D45C900DDA614 /* DMUIDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		44797EBC213D2FC300DDA614 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44797EC0213D2FC300DDA614 /* DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUITests.swift; sourceTree = "<group>"; };
 		44797EC2213D2FC300DDA614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44797F1E213D45C900DDA614 /* DMUIDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMUIDefine.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 		44797E94213D2FC200DDA614 = {
 			isa = PBXGroup;
 			children = (
+				44797F1D213D45C900DDA614 /* Public */,
 				44797E9F213D2FC200DDA614 /* Demo */,
 				44797EB4213D2FC300DDA614 /* DemoTests */,
 				44797EBF213D2FC300DDA614 /* DemoUITests */,
@@ -130,6 +133,14 @@
 				44797EC2213D2FC300DDA614 /* Info.plist */,
 			);
 			path = DemoUITests;
+			sourceTree = "<group>";
+		};
+		44797F1D213D45C900DDA614 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				44797F1E213D45C900DDA614 /* DMUIDefine.swift */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		82D5C97D1C6A37339511FE76 /* Pods */ = {
@@ -303,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44797EA3213D2FC200DDA614 /* ViewController.swift in Sources */,
+				44797F1F213D45C900DDA614 /* DMUIDefine.swift in Sources */,
 				44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
