@@ -10,7 +10,7 @@ import UIKit
 
 class SearchCourseInfo: NSObject {
 
-    var name : String?
-    var thumbImageUrl: String?
-    var org_name : String?
+    var name : String = ""
+    var thumbImageUrl: String = ""
+    var org_name : String = ""
 }

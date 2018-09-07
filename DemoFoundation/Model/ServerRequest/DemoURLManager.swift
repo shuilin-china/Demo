@@ -14,11 +14,7 @@ class DemoURLManager: NSObject {
     static let sharedInstance = DemoURLManager ()
     
     //当前接口环境ID，默认0
-    var currentEviromentID : Int!
-    
-    override init() {
-        currentEviromentID = 0;
-    }
+    var currentEviromentID : Int = 0
 
     //主服务器地址
     func mainHost () -> String!

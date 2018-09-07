@@ -8,6 +8,6 @@
 
 import Foundation
 
-typealias ResultCallback = (Error?) -> ()
+typealias ResultCallback = (Error?) -> Void
 
-typealias DataResultCallback = (Any?, Error?) -> ()
+typealias DataResultCallback = (Any?, Error?) -> Void

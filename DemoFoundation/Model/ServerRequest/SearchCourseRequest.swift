@@ -10,16 +10,23 @@ import UIKit
 
 class SearchCourseRequest: DemoHttpRequest {
     
-    var courseInfos : Array<Any>?
+    var keyword : String = ""
+    var offset : Int = 0 
+    var limit : Int = 6
+    var courseInfos : Array<Any> = Array()
+    
+    deinit{
+        print("(-) SearchCourseRequest")
+    }
 
     override func send(callback:@escaping ResultCallback) {
         
         let parameters: Dictionary<String, Any> = [
-            "keyword": "english",
+            "keyword": self.keyword,
             "type": "all",
             "course_id": "",
-            "offset": "0",
-            "limit": "6",
+            "offset": "\(self.offset)",
+            "limit": "\(self.limit)",
             "course_type": "0,1",
             ]
         self.params = parameters
@@ -37,26 +44,25 @@ class SearchCourseRequest: DemoHttpRequest {
                 {
                     if let courses = dict["courses"] as? Array<Any>
                     {
-                        var infos : Array<Any> = Array()
+                        var infos = self.courseInfos
                         for course in courses
                         {
                             if let courseDict = course as? Dictionary<String,Any>
                             {
                                 let info : SearchCourseInfo = SearchCourseInfo()
-                                info.name = courseDict["name"] as? String
-                                info.thumbImageUrl = courseDict["thumbnail"] as? String
-                                info.org_name = courseDict["org_name"] as? String
+                                info.name = exString(courseDict["name"] as? String)
+                                info.thumbImageUrl = exString(courseDict["thumbnail"] as? String)
+                                info.org_name = exString(courseDict["org_name"] as? String)
                                 
                                 infos.append(info)
                             }
                             
                         }
                         
-                        self.courseInfos = infos;
                     }
                     else
                     {
-                        print("courses is nil")
+                        //print("courses is nil")
                     }
                     
                     //print(dict)
