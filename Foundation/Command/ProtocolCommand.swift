@@ -18,7 +18,7 @@ class ProtocolCommand: NSObject {
         self.selector = selector
     }
     
-    //有参数无返回值的
+    //无返回值的
     func execute(_ params: Array<Any?>) -> Void
     {
         if self.target.responds(to: self.selector)
@@ -27,7 +27,7 @@ class ProtocolCommand: NSObject {
         }
     }
     
-    //有参数有返回值的
+    //有返回值的
     func executeR(_ params: Array<Any?>) -> AnyObject?
     {
         if self.target.responds(to: self.selector)

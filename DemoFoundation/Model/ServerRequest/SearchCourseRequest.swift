@@ -11,8 +11,8 @@ import UIKit
 class SearchCourseRequest: DemoHttpRequest {
     
     var keyword : String = ""
-    var offset : Int = 0 
-    var limit : Int = 6
+    var offset : Int = 0 //默认
+    var limit : Int = 6 //默认
     var courseInfos : Array<Any> = Array()
     
     deinit{

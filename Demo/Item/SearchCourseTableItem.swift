@@ -14,6 +14,7 @@ class SearchCourseTableItem: NSObject {
     var courseInfos : Array<Any> = Array()
     var courseItems : Array<Any> = Array()
     var clickCourseCellCommand : ProtocolCommand?
+    var offset : Int = 0;
     
     deinit{
         print("(-) SearchCourseTableItem")
@@ -29,30 +30,69 @@ class SearchCourseTableItem: NSObject {
             callback(error)
             return
         }
+        self.offset = 0;
         
         let request : SearchCourseRequest = SearchCourseRequest()
         request.keyword = text!
-        request.offset = 0
+        request.offset = self.offset
         request.limit = 9
         request.send { (error) in
             
             if error == nil //成功
             {
                 //print(request.courseInfos)
-                self.courseInfos = request.courseInfos
                 
-                self.onUpdate()
+                self.onUpdate(infos: request.courseInfos)
+                
+                self.offset += request.limit
             }
             
             callback(error)
         }
     }
     
-    func onUpdate()
+    func onSearchMore(callback:@escaping ResultCallback)
     {
+        let text = self.text
+        
+        if text == nil || text!.count == 0
+        {
+            let error : NSError = NSError(domain: "没有指定搜索关键字", code: 1, userInfo: nil)
+            callback(error)
+            return
+        }
+        
+        let request : SearchCourseRequest = SearchCourseRequest()
+        request.keyword = text!
+        request.offset = self.offset
+        request.limit = 6
+        request.send { (error) in
+            
+            if error == nil //成功
+            {
+                //print(request.courseInfos)
+                self.onAppend(infos: request.courseInfos)
+                
+                self.offset += request.limit
+            }
+            
+            callback(error)
+        }
+    }
+    
+    func onUpdate(infos:Array<Any>)
+    {
+        self.courseInfos.removeAll()
         self.courseItems.removeAll()
         
-        for temp in self.courseInfos
+        self.onAppend(infos: infos)
+    }
+    
+    func onAppend(infos:Array<Any>)
+    {
+        self.courseInfos.append(infos)
+        
+        for temp in infos
         {
             if let info = temp as? SearchCourseInfo
             {
