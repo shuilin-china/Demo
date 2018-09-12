@@ -44,7 +44,7 @@ class SearchCourseRequest: DemoHttpRequest {
                 {
                     if let courses = dict["courses"] as? Array<Any>
                     {
-                        var infos = self.courseInfos
+                        //var infos = self.courseInfos
                         for course in courses
                         {
                             if let courseDict = course as? Dictionary<String,Any>
@@ -54,7 +54,7 @@ class SearchCourseRequest: DemoHttpRequest {
                                 info.thumbImageUrl = exString(courseDict["thumbnail"] as? String)
                                 info.org_name = exString(courseDict["org_name"] as? String)
                                 
-                                infos.append(info)
+                                self.courseInfos.append(info)
                             }
                             
                         }

@@ -17,7 +17,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var button : UIButton = UIButton(type: UIButtonType.system)
-    var currentSearchItem : SearchCourseItem?
+    let searchCourseTableItem = SearchCourseTableItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,11 @@ class ViewController: UIViewController {
 //        
 //        print(result!)
         
-        
-        
+//        var items : Array<Any?> = [nil]
+//        if items[0] == nil
+//        {
+//            print("\(items[0])")
+//        }
         
     }
 
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.updateFrames()
+        self.updateFrame()
     }
     
     func addViews() -> Void
@@ -73,7 +76,7 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func updateFrames() ->Void
+    func updateFrame() ->Void
     {
         let rect : CGRect = self.view.bounds
         let width : CGFloat = rect.size.width
@@ -91,17 +94,11 @@ class ViewController: UIViewController {
     {
         //print("clicked search button")
         
-        let item : SearchCourseItem  = SearchCourseItem()
+        let item : SearchCourseTableItem = self.searchCourseTableItem
         item.text = "english"
-        self.currentSearchItem = item
         
         //搜索课程
         item.onSearch { (error) in
-            
-            if item != self.currentSearchItem
-            {
-                return
-            }
             
             if error == nil
             {
