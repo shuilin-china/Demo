@@ -71,6 +71,11 @@ class SearchCourseListViewController: UITableViewController {
         
         item?.clickCommand?.execute([item])
     }
+    
+    func reloadData()
+    {
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.

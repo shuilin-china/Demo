@@ -12,7 +12,7 @@ class SearchCourseTableItem: NSObject {
 
     var text : String?
     var courseInfos : Array<Any> = Array()
-    var courseItems : Array<Any> = Array()
+    var items : Array<Any> = Array()
     var clickCourseCellCommand : ProtocolCommand?
     var offset : Int = 0;
     
@@ -83,7 +83,7 @@ class SearchCourseTableItem: NSObject {
     func onUpdate(infos:Array<Any>)
     {
         self.courseInfos.removeAll()
-        self.courseItems.removeAll()
+        self.items.removeAll()
         
         self.onAppend(infos: infos)
     }
@@ -103,7 +103,7 @@ class SearchCourseTableItem: NSObject {
                 item.height = 70
                 item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem))
                 
-                self.courseItems.append(item)
+                self.items.append(item)
             }
         }
     }
@@ -115,16 +115,16 @@ class SearchCourseTableItem: NSObject {
     
     func cellCountAtSection(section:Int) -> Int
     {
-        return self.courseItems.count
+        return self.items.count
     }
     
     func cellItemAt(indexPath:IndexPath) -> SearchCourseCellItem?
     {
         let index = indexPath.row
         
-        if index < self.courseItems.count
+        if index < self.items.count
         {
-            return self.courseItems[index] as? SearchCourseCellItem
+            return self.items[index] as? SearchCourseCellItem
         }
         
         return nil

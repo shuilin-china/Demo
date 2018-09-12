@@ -11,5 +11,7 @@ import UIKit
 class CourseKeyCellItem: NSObject {
 
     var title : String = ""
+    var height : CGFloat = 0.0
     
+    var clickCommand : ProtocolCommand?
 }

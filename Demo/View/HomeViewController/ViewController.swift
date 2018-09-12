@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     var button : UIButton = UIButton(type: UIButtonType.system)
     let searchCourseTableItem = SearchCourseTableItem()
+    let courseKeyTableItem = CourseKeyTableItem()
+    let keyListViewController = CourseKeyListViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,10 @@ class ViewController: UIViewController {
 //            print("\(items[0])")
 //        }
         
+        self.courseKeyTableItem.onLoad { (error) in
+            
+            self.keyListViewController.
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +80,9 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(onClickSearchButton), for: .touchUpInside)
         
         self.view.addSubview(button)
+        
+        self.addChildViewController(self.keyListViewController)
+        self.view.addSubview(self.keyListViewController.view)
     }
     
     func updateFrame() ->Void
@@ -88,6 +97,7 @@ class ViewController: UIViewController {
         let y : CGFloat = 200
         self.button.frame = CGRect(x: x, y: y, width: w, height: h)
         
+        self.keyListViewController.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300)
     }
     
     @objc func onClickSearchButton()

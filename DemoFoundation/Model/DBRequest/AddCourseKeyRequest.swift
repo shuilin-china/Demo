@@ -15,6 +15,10 @@ class AddCourseKeyRequest: DemoCoreDataRequest {
     
     override func execute(moc : NSManagedObjectContext) -> (Any?, Error?) {
         
-        return (nil, nil)
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "CourseKeyEntity", into: moc) as! CourseKeyEntity
+        entity.title = key
+        let error = super.saveContext(moc: moc)
+        
+        return (nil, error)
     }
 }

@@ -11,3 +11,19 @@ import Foundation
 typealias ResultCallback = (Error?) -> Void
 
 typealias DataResultCallback = (Any?, Error?) -> Void
+
+func mainResultCallback(callback:@escaping ResultCallback,error:Error?)
+{
+    DispatchQueue.main.async {
+        
+        callback(error)
+    }
+}
+
+func mainDataResultCallback(callback:@escaping DataResultCallback,data:Any?,error:Error?)
+{
+    DispatchQueue.main.async {
+        
+        callback(data,error)
+    }
+}

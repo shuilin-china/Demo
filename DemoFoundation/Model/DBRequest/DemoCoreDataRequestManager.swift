@@ -12,6 +12,7 @@ import CoreData
 class DemoCoreDataRequestManager: NSObject {
 
     static let sharedInstance = DemoCoreDataRequestManager ()
+    let queue = DispatchQueue(label: "com.demo.demo")//串行
     
     override init() {
         
@@ -49,7 +50,7 @@ class DemoCoreDataRequestManager: NSObject {
         return documentDir!
     }()
 
-    lazy var moc: NSManagedObjectContext = {
+    private lazy var moc: NSManagedObjectContext = {
         
         let context = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
         context.persistentStoreCoordinator = persistentStoreCoordinator
@@ -59,6 +60,12 @@ class DemoCoreDataRequestManager: NSObject {
     
     func sendRequest(request:DemoCoreDataRequest, callback:@escaping DataResultCallback)
     {
-        
+        queue.async {
+            
+            let (data,error) = request.execute(moc: self.moc)
+            
+            //在主线程返回
+            mainDataResultCallback(callback: callback, data: data, error: error)
+        }
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class CourseKeyListViewController: UITableViewController {
 
+    var item : CourseKeyTableItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
