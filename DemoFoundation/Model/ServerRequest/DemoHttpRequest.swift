@@ -10,8 +10,6 @@ import UIKit
 import Alamofire
 
 
-
-//Http请求基类
 class DemoHttpRequest: NSObject {
 
     var url : String?

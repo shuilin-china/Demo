@@ -8,18 +8,42 @@
 
 import UIKit
 
-//func doWork(block:(String)->(Int),block2:(String)->(Int)) {
-//    print("header")
-//    let t : Int = block("abc")
-//    print(t)
-//}
-
 class ViewController: UIViewController {
     
-    var button : UIButton = UIButton(type: UIButtonType.system)
+    var clearButton : UIButton = UIButton(type: UIButtonType.system)
     let searchCourseTableItem = SearchCourseTableItem()
     let courseKeyTableItem = CourseKeyTableItem()
-    let keyListViewController = CourseKeyListViewController()
+    var keyListViewController : CourseKeyListViewController?
+    @IBOutlet var keyTextField : UITextField?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.doInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.doInit()
+    }
+    
+    func doInit()
+    {
+        self.addNotifications()
+        
+        let storyboard = UIStoryboard(name: "SearchCourse", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "CourseKeyListViewController") as? CourseKeyListViewController
+        {
+            self.keyListViewController = vc
+        }
+        
+        self.courseKeyTableItem.clickKeyCellCommand = ProtocolCommand(target: self, selector: #selector(onClickKeyItem(params:)))
+    }
+    
+    deinit {
+        self.removeNotifications()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,39 +51,9 @@ class ViewController: UIViewController {
         
         self.addViews()
         
-//        doWork(block: { (text : String) -> (Int) in
-//            print("in block")
-//
-//            return 2
-//        }) { (text : String) -> (Int) in
-//            print("in block2")
-//
-//            return 5
-//
-//        }
-//        doWork { (text : String) -> (Int) in
-//            print(text)
-//            return 3
-//        }
+        self.keyListViewController?.item = self.courseKeyTableItem
         
-        //let i = SCREEN_HEIGHT
-        
-        
-//        let command : ProtocolCommand = ProtocolCommand(target: self, selector: #selector(onClickButton4))
-//        let result : AnyObject? = command.executeR([1,"hr"])
-//        
-//        print(result!)
-        
-//        var items : Array<Any?> = [nil]
-//        if items[0] == nil
-//        {
-//            print("\(items[0])")
-//        }
-        
-        self.courseKeyTableItem.onLoad { (error) in
-            
-            self.keyListViewController.
-        }
+        self.reloadKeyListViewController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,14 +69,21 @@ class ViewController: UIViewController {
     
     func addViews() -> Void
     {
-        let button = self.button
-        button.setTitle("搜索", for: UIControlState.normal)
-        button.addTarget(self, action: #selector(onClickSearchButton), for: .touchUpInside)
+        //"清空"按钮
+        let button = self.clearButton
+        button.setTitle("清空", for: UIControlState.normal)
+        button.addTarget(self, action: #selector(onClearButton), for: .touchUpInside)
         
         self.view.addSubview(button)
+        button.isHidden = true
         
-        self.addChildViewController(self.keyListViewController)
-        self.view.addSubview(self.keyListViewController.view)
+        //搜索记录
+        if self.keyListViewController != nil
+        {
+            self.addChildViewController(self.keyListViewController!)
+            self.view.addSubview(self.keyListViewController!.view)
+        }
+        
     }
     
     func updateFrame() ->Void
@@ -91,21 +92,69 @@ class ViewController: UIViewController {
         let width : CGFloat = rect.size.width
         let height : CGFloat = rect.size.height
         
-        let w : CGFloat = 100.0
-        let h : CGFloat = 40.0
-        let x : CGFloat = (width - w) / 2
-        let y : CGFloat = 200
-        self.button.frame = CGRect(x: x, y: y, width: w, height: h)
+        let w : CGFloat = 60.0
+        let h : CGFloat = 30.0
+        let x : CGFloat = width - w - 6
+        let y : CGFloat = 270
+        self.clearButton.frame = CGRect(x: x, y: y, width: w, height: h)
         
-        self.keyListViewController.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300)
+        self.keyListViewController!.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300)
     }
     
-    @objc func onClickSearchButton()
+    func addNotifications()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotifyAddCourseKey), name: NSNotification.Name(kCourseKeyAddNotification), object: nil)
+    }
+    
+    func removeNotifications()
+    {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(kCourseKeyAddNotification), object: nil)
+    }
+    
+    @IBAction func onClickSearchButton(sender:AnyObject)
+    {
+        self.searchKey(key: self.keyTextField?.text)
+    }
+    
+    @objc func onClearButton()
     {
         //print("clicked search button")
         
+        self.courseKeyTableItem.onClear { (error) in
+            
+            if error == nil
+            {
+                self.reloadKeyListViewController()
+            }
+        }
+    }
+    
+    @objc func onClickKeyItem(params:Array<Any>)
+    {
+        let item = params[0] as? CourseKeyCellItem
+        if item != nil
+        {
+            self.searchKey(key: item?.title)
+        }
+    }
+    
+    func reloadKeyListViewController()
+    {
+        self.courseKeyTableItem.onLoad { (error) in
+            
+            if error == nil
+            {
+                self.keyListViewController!.updateUI()
+            }
+            
+            self.clearButton.isHidden = self.courseKeyTableItem.isEmpty()
+        }
+    }
+    
+    func searchKey(key:String?)
+    {
         let item : SearchCourseTableItem = self.searchCourseTableItem
-        item.text = "english"
+        item.text = key
         
         //搜索课程
         item.onSearch { (error) in
@@ -125,28 +174,10 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func onClickButton1() -> Void
-    {
-        print("onClickButton1")
-    }
     
-    @objc func onClickButton2(params:Array<Any>) -> Void
+    @objc func onNotifyAddCourseKey(note:Notification)
     {
-        print(params[0])
-    }
-    
-    @objc func onClickButton3() -> AnyObject?
-    {
-        print("onClickButton3")
-        return NSNumber(value: 90)
-    }
-
-    @objc func onClickButton4(params:Array<Any>) -> AnyObject?
-    {
-        print(params[0])
-        print(params[1])
-        
-        return NSNumber(value: 3.67)
+        self.reloadKeyListViewController()
     }
 
 }

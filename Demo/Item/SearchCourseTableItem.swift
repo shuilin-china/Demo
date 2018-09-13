@@ -26,13 +26,13 @@ class SearchCourseTableItem: NSObject {
         
         if text == nil || text!.count == 0
         {
-            let error : NSError = NSError(domain: "没有指定搜索关键字", code: 1, userInfo: nil)
+            let error : NSError = NSError(domain: "请输入关键字", code: 1, userInfo: nil)
             callback(error)
             return
         }
         self.offset = 0;
         
-        let request : SearchCourseRequest = SearchCourseRequest()
+        let request : SearchAddCourseRequest = SearchAddCourseRequest()
         request.keyword = text!
         request.offset = self.offset
         request.limit = 9
@@ -97,11 +97,8 @@ class SearchCourseTableItem: NSObject {
             if let info = temp as? SearchCourseInfo
             {
                 let item : SearchCourseCellItem = SearchCourseCellItem()
-                item.title = info.name
-                item.desc = info.org_name
-                item.imageUrl = info.thumbImageUrl
-                item.height = 70
-                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem))
+                item.onUpdate(info: info)
+                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
                 
                 self.items.append(item)
             }

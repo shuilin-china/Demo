@@ -87,6 +87,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="mgb-6B-VCB" id="Bm4-AF-2z4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

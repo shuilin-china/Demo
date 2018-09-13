@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCourseRequest: DemoHttpRequest {
+class SearchCourseRequest: NSObject {
     
     var keyword : String = ""
     var offset : Int = 0 //默认
@@ -19,7 +19,7 @@ class SearchCourseRequest: DemoHttpRequest {
         print("(-) SearchCourseRequest")
     }
 
-    override func send(callback:@escaping ResultCallback) {
+    func send(callback:@escaping ResultCallback) {
         
         let parameters: Dictionary<String, Any> = [
             "keyword": self.keyword,
@@ -29,16 +29,18 @@ class SearchCourseRequest: DemoHttpRequest {
             "limit": "\(self.limit)",
             "course_type": "0,1",
             ]
-        self.params = parameters
+        
+        let request : DemoHttpRequest = DemoHttpRequest()
+        request.params = parameters
         
         let url = DemoURLManager.sharedInstance.searchCourseUrl()
-        self.url = url
-        self.method = .HTTP_GET
+        request.url = url
+        request.method = .HTTP_GET
         
-        super.send { (error) in
+        request.send { (error) in
             if error == nil
             {
-                let json = self.response
+                let json = request.response
                 
                 if let dict = json as? Dictionary<String,Any>
                 {

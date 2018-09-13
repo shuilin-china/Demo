@@ -9,29 +9,43 @@
 import UIKit
 import CoreData
 
-class QueryCourseKeyRequest: DemoCoreDataRequest {
+class QueryCourseKeyRequest: NSObject {
     
     var keys : Array<String?> = Array()
-
-    override func execute(moc : NSManagedObjectContext) -> (Any?, Error?) {
+    
+    func send(callback: @escaping ResultCallback) {
         
-        let fetchRequest: NSFetchRequest = CourseKeyEntity.fetchRequest()
-        //fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        let request = fetchRequest as! NSFetchRequest<NSManagedObject>
+        let queue = DemoCoreDataManager.sharedInstance.queue
         
-        let (objects,error) = super.query(fetchRequest:request, moc: moc)
-        
-        if objects != nil
-        {
-            for object in objects!
+        queue.async {
+            
+            let moc = DemoCoreDataManager.sharedInstance.moc
+            
+            let fetchRequest: NSFetchRequest = CourseKeyEntity.fetchRequest()
+            //fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+            let request = fetchRequest as! NSFetchRequest<NSManagedObject>
+            
+            let (objects,error) = DemoCoreDataManager.query(fetchRequest:request,moc: moc)
+            
+            var keys : Array<String?> = Array()
+            if objects != nil
             {
-                if let entity = object as? CourseKeyEntity
+                for object in objects!
                 {
-                    keys.append(entity.title)
+                    if let entity = object as? CourseKeyEntity
+                    {
+                        keys.append(entity.title)
+                    }
                 }
             }
+            
+            DispatchQueue.main.async {
+                
+                self.keys = keys
+                
+                callback(error)
+            }
         }
-        
-        return (keys, error)
     }
+    
 }

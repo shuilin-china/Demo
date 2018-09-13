@@ -9,29 +9,39 @@
 import UIKit
 import CoreData
 
-class ClearCourseKeyRequest: DemoCoreDataRequest {
-
-    override func execute(moc : NSManagedObjectContext) -> (Any?, Error?) {
+class ClearCourseKeyRequest: NSObject {
+    
+    func send(callback: @escaping ResultCallback) {
         
-        let fetchRequest: NSFetchRequest = CourseKeyEntity.fetchRequest()
-        let request = fetchRequest as! NSFetchRequest<NSManagedObject>
-        
-        var (objects,error) = super.query(fetchRequest:request, moc: moc)
-        
-        if objects != nil
-        {
-            for object in objects!
+        let queue = DemoCoreDataManager.sharedInstance.queue
+        queue.async {
+            
+            let moc = DemoCoreDataManager.sharedInstance.moc
+            
+            let fetchRequest: NSFetchRequest = CourseKeyEntity.fetchRequest()
+            let request = fetchRequest as! NSFetchRequest<NSManagedObject>
+            
+            var (objects,error) = DemoCoreDataManager.query(fetchRequest:request,moc: moc)
+            
+            if objects != nil
             {
-                if let entity = object as? NSManagedObject
+                for object in objects!
                 {
-                    moc.delete(entity)
+                    if let entity = object as? NSManagedObject
+                    {
+                        moc.delete(entity)
+                    }
                 }
+                
+                error = DemoCoreDataManager.saveContext(moc: moc)
             }
             
-            error = super.saveContext(moc:moc)
+            DispatchQueue.main.async {
+                
+                callback(error)
+            }
         }
-        
-        
-        return (nil, error)
     }
+    
+    
 }

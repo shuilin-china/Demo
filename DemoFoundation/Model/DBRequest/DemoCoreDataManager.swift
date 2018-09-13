@@ -1,17 +1,17 @@
 //
-//  DemoCoreDataRequestManager.swift
+//  DemoCoreDataManager.swift
 //  Demo
 //
-//  Created by Foryou on 2018/9/12.
+//  Created by Foryou on 2018/9/13.
 //  Copyright © 2018年 Foryou. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class DemoCoreDataRequestManager: NSObject {
+class DemoCoreDataManager: NSObject {
 
-    static let sharedInstance = DemoCoreDataRequestManager ()
+    static let sharedInstance = DemoCoreDataManager ()
     let queue = DispatchQueue(label: "com.demo.demo")//串行
     
     override init() {
@@ -49,8 +49,8 @@ class DemoCoreDataRequestManager: NSObject {
         let documentDir = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first
         return documentDir!
     }()
-
-    private lazy var moc: NSManagedObjectContext = {
+    
+    lazy var moc: NSManagedObjectContext = {
         
         let context = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
         context.persistentStoreCoordinator = persistentStoreCoordinator
@@ -58,14 +58,35 @@ class DemoCoreDataRequestManager: NSObject {
         return context
     }()
     
-    func sendRequest(request:DemoCoreDataRequest, callback:@escaping DataResultCallback)
+    class func saveContext(moc:NSManagedObjectContext) -> Error?
     {
-        queue.async {
+        var err : Error?
+        
+        do {
+            try moc.save()
+        } catch {
+            //let nserror = error as NSError
+            //fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             
-            let (data,error) = request.execute(moc: self.moc)
-            
-            //在主线程返回
-            mainDataResultCallback(callback: callback, data: data, error: error)
+            err = error
         }
+        
+        return err
     }
+    
+    class func query(fetchRequest:NSFetchRequest<NSManagedObject>, moc:NSManagedObjectContext) -> (Array<Any>?,Error?) {
+        
+        var err : Error?
+        var result : Array<Any>?
+        
+        do {
+            result = try moc.fetch(fetchRequest)
+        } catch {
+            //fatalError();
+            err = error
+        }
+        
+        return (result, err)
+    }
+    
 }

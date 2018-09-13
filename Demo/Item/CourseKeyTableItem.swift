@@ -14,40 +14,20 @@ class CourseKeyTableItem: NSObject {
     var items : Array<Any> = Array()
     var clickKeyCellCommand : ProtocolCommand?
     
-    func onAdd(key:String!, callback:@escaping ResultCallback)
-    {
-        let request = AddCourseKeyRequest()
-        request.key = key
-        
-        request.send { (error) in
-            
-            //加入成功
-            if error == nil
-            {
-                //刷新列表
-                self.onLoad(callback: { (error) in
-                    
-                    callback(error)
-                })
-            }
-            else
-            {
-                callback(error)
-            }
-            
-        }
-    }
-    
     func onClear(callback:@escaping ResultCallback)
     {
-        
+        let request = ClearCourseKeyRequest()
+        request.send { (error) in
+            
+            callback(error)
+        }
     }
     
     func onLoad(callback:@escaping ResultCallback)
     {
         let request = QueryCourseKeyRequest()
         request.send { (error) in
-            if error != nil
+            if error == nil
             {
                 self.onUpdate(keys: request.keys)
             }
@@ -75,11 +55,38 @@ class CourseKeyTableItem: NSObject {
                 let item : CourseKeyCellItem = CourseKeyCellItem()
                 item.title = key
                 item.height = 38
-                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickKeyItem))
+                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickKeyItem(params:)))
                 
                 self.items.append(item)
             }
         }
+    }
+    
+    func sectionCount() -> Int
+    {
+        return 1
+    }
+    
+    func cellCountAtSection(section:Int) -> Int
+    {
+        return self.items.count
+    }
+    
+    func cellItemAt(indexPath:IndexPath) -> CourseKeyCellItem?
+    {
+        let index = indexPath.row
+        
+        if index < self.items.count
+        {
+            return self.items[index] as? CourseKeyCellItem
+        }
+        
+        return nil
+    }
+    
+    func isEmpty() -> Bool
+    {
+        return self.items.count == 0
     }
     
     @objc func onClickKeyItem(params:Array<Any>)

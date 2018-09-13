@@ -13,7 +13,7 @@ class SearchCourseViewController: UIViewController {
     var item : SearchCourseTableItem?
     {
         didSet{
-            self.item?.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem))
+            self.item?.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
             self.listViewController?.item = self.item
         }
     }

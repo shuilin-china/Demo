@@ -9,16 +9,47 @@
 import UIKit
 import CoreData
 
-class AddCourseKeyRequest: DemoCoreDataRequest {
+class AddCourseKeyRequest: NSObject {
     
     var key : String = ""
     
-    override func execute(moc : NSManagedObjectContext) -> (Any?, Error?) {
+    func send(callback: @escaping ResultCallback) {
         
-        let entity = NSEntityDescription.insertNewObject(forEntityName: "CourseKeyEntity", into: moc) as! CourseKeyEntity
-        entity.title = key
-        let error = super.saveContext(moc: moc)
+        let key = self.key
         
-        return (nil, error)
+        let queue = DemoCoreDataManager.sharedInstance.queue
+        
+        queue.async {
+            
+            let moc = DemoCoreDataManager.sharedInstance.moc
+            
+            //先删除掉同样的关键字
+            let fetchRequest: NSFetchRequest = CourseKeyEntity.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "title == %@", key)
+            let request = fetchRequest as! NSFetchRequest<NSManagedObject>
+            
+            var (objects,error) = DemoCoreDataManager.query(fetchRequest:request,moc: moc)
+            
+            if objects != nil
+            {
+                for object in objects!
+                {
+                    if let entity = object as? NSManagedObject
+                    {
+                        moc.delete(entity)
+                    }
+                }
+            }
+            
+            //再加入新的
+            let entity = NSEntityDescription.insertNewObject(forEntityName: "CourseKeyEntity", into: moc) as! CourseKeyEntity
+            entity.title = key
+            error = DemoCoreDataManager.saveContext(moc: moc)
+            
+            DispatchQueue.main.async {
+                
+                callback(error)
+            }
+        }
     }
 }

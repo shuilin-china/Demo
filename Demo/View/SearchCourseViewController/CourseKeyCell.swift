@@ -10,6 +10,15 @@ import UIKit
 
 class CourseKeyCell: UITableViewCell {
 
+    
+    @IBOutlet var titleLabel : UILabel?
+    var item : CourseKeyCellItem?
+    {
+        didSet{
+                self.titleLabel?.text = self.item?.title
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

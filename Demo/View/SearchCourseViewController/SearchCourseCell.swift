@@ -33,9 +33,4 @@ class SearchCourseCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    @IBAction func clickTestButton(sender:AnyObject)
-    {
-        print("click button")
-    }
 }

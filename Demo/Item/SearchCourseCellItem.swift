@@ -17,4 +17,11 @@ class SearchCourseCellItem: NSObject {
     
     var clickCommand : ProtocolCommand?
     
+    func onUpdate(info : SearchCourseInfo)
+    {
+        self.title = info.name
+        self.desc = info.org_name
+        self.imageUrl = info.thumbImageUrl
+        self.height = 70
+    }
 }
