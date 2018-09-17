@@ -95,7 +95,15 @@ class SearchCourseViewController: UIViewController {
 
         if item != nil
         {
-            print("onClickCourseItem : \(item!.title)")
+            //print("onClickCourseItem : \(item!.title)")
+            let request = AlertViewRequest()
+            request.title = "课程"
+            request.message = item!.title
+            request.onController = self
+            request.show {
+                
+            }
+    
         }
         else
         {

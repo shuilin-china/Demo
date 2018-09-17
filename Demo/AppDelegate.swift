@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)        
         self.window?.makeKeyAndVisible()
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        let rootViewController = DemoNavigationController(rootViewController: vc)
+        let rootViewController = RootViewController()
         
         self.window?.rootViewController = rootViewController
         

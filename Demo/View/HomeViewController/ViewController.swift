@@ -49,10 +49,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //加载子视图
         self.addViews()
         
+        //赋初值
         self.keyListViewController?.item = self.courseKeyTableItem
         
+        //加载
         self.reloadKeyListViewController()
     }
 
@@ -65,6 +68,21 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         self.updateFrame()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
     }
     
     func addViews() -> Void
@@ -113,6 +131,14 @@ class ViewController: UIViewController {
     
     @IBAction func onClickSearchButton(sender:AnyObject)
     {
+        let key = self.keyTextField?.text
+        
+        //记录
+        self.courseKeyTableItem.onAddKey(key: key) { (error) in
+            
+        }
+        
+        //搜索
         self.searchKey(key: self.keyTextField?.text)
     }
     
@@ -120,11 +146,21 @@ class ViewController: UIViewController {
     {
         //print("clicked search button")
         
-        self.courseKeyTableItem.onClear { (error) in
+        let request = AlertViewRequest()
+        request.message = "确定删除所有记录？"
+        request.buttonTitles = ["取消","确定"]
+        request.onController = self
+        request.show {
             
-            if error == nil
+            if request.index == 1
             {
-                self.reloadKeyListViewController()
+                self.courseKeyTableItem.onClear { (error) in
+                    
+                    if error == nil
+                    {
+                        self.reloadKeyListViewController()
+                    }
+                }
             }
         }
     }
@@ -157,7 +193,11 @@ class ViewController: UIViewController {
         item.text = key
         
         //搜索课程
+        HudRequest.showLoading(true)
+        
         item.onSearch { (error) in
+            
+            HudRequest.showLoading(false)
             
             if error == nil
             {
@@ -169,7 +209,8 @@ class ViewController: UIViewController {
             }
             else
             {
-                print(error!)
+                //print(error!)
+                HudRequest.show(text: error?.msg)
             }
         }
     }
@@ -179,6 +220,6 @@ class ViewController: UIViewController {
     {
         self.reloadKeyListViewController()
     }
-
+    
 }
 

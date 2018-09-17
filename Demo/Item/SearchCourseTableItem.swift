@@ -26,13 +26,13 @@ class SearchCourseTableItem: NSObject {
         
         if text == nil || text!.count == 0
         {
-            let error : NSError = NSError(domain: "请输入关键字", code: 1, userInfo: nil)
+            let error : NSError = NSError.create(code: 1, message: "请输入关键字")
             callback(error)
             return
         }
         self.offset = 0;
         
-        let request : SearchAddCourseRequest = SearchAddCourseRequest()
+        let request : SearchCourseRequest = SearchCourseRequest()
         request.keyword = text!
         request.offset = self.offset
         request.limit = 9

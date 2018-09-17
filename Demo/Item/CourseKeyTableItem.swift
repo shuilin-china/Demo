@@ -14,6 +14,31 @@ class CourseKeyTableItem: NSObject {
     var items : Array<Any> = Array()
     var clickKeyCellCommand : ProtocolCommand?
     
+    func onAddKey(key:String?, callback:@escaping ResultCallback)
+    {
+        if key == nil || key!.count == 0
+        {
+            let error : NSError = NSError(domain: "关键字不能为空", code: 1, userInfo: nil)
+            callback(error)
+            return
+        }
+        
+        //先把关键字记录下来
+        let request = AddCourseKeyRequest()
+        request.key = key!
+        
+        request.send { (error) in
+            
+            if error == nil
+            {
+                //通知有新值加入
+                NotificationCenter.default.post(name:NSNotification.Name(kCourseKeyAddNotification), object: self, userInfo: nil)
+            }
+            
+            callback(error)
+        }
+    }
+    
     func onClear(callback:@escaping ResultCallback)
     {
         let request = ClearCourseKeyRequest()

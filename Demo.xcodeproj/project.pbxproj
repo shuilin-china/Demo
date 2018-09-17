@@ -18,7 +18,6 @@
 		445A96672148C490002B06C7 /* CourseKeyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A96662148C490002B06C7 /* CourseKeyListViewController.swift */; };
 		445A967121490897002B06C7 /* CourseKeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A966F21490896002B06C7 /* CourseKeyEntity+CoreDataClass.swift */; };
 		445A967221490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A967021490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift */; };
-		445E7A34214A0052006830DC /* SearchAddCourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E7A33214A0052006830DC /* SearchAddCourseRequest.swift */; };
 		445E7A36214A04A4006830DC /* DemoNotificationDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E7A35214A04A4006830DC /* DemoNotificationDefine.swift */; };
 		445E7A38214A32FF006830DC /* DemoCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E7A37214A32FF006830DC /* DemoCoreDataManager.swift */; };
 		44618BA82140D15A004C307B /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44618BA62140D15A004C307B /* Callback.swift */; };
@@ -47,6 +46,11 @@
 		447D88FB21478F5300FD48FE /* SearchCourseTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D88EE21478F5300FD48FE /* SearchCourseTableItem.swift */; };
 		447D88FC21478F5300FD48FE /* CourseKeyTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D88EF21478F5300FD48FE /* CourseKeyTableItem.swift */; };
 		447D88FD21478F5300FD48FE /* SearchCourseCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D88F021478F5300FD48FE /* SearchCourseCellItem.swift */; };
+		44811372214F579100FAE54C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811371214F579100FAE54C /* RootViewController.swift */; };
+		44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811374214F78B700FAE54C /* AlertViewRequest.swift */; };
+		4481137C214F934200FAE54C /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481137B214F934200FAE54C /* SwiftNotice.swift */; };
+		4481137E214F93B000FAE54C /* HudRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481137D214F93B000FAE54C /* HudRequest.swift */; };
+		44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811381214F9B8500FAE54C /* ErrorExtension.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +85,6 @@
 		445A96662148C490002B06C7 /* CourseKeyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseKeyListViewController.swift; sourceTree = "<group>"; };
 		445A966F21490896002B06C7 /* CourseKeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CourseKeyEntity+CoreDataClass.swift"; path = "/Users/foryou/Desktop/Space/Demo/DemoFoundation/Model/DBRequest/CourseKeyEntity+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		445A967021490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CourseKeyEntity+CoreDataProperties.swift"; path = "/Users/foryou/Desktop/Space/Demo/DemoFoundation/Model/DBRequest/CourseKeyEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		445E7A33214A0052006830DC /* SearchAddCourseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddCourseRequest.swift; sourceTree = "<group>"; };
 		445E7A35214A04A4006830DC /* DemoNotificationDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNotificationDefine.swift; sourceTree = "<group>"; };
 		445E7A37214A32FF006830DC /* DemoCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCoreDataManager.swift; sourceTree = "<group>"; };
 		44618BA62140D15A004C307B /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
@@ -116,6 +119,11 @@
 		447D88EE21478F5300FD48FE /* SearchCourseTableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCourseTableItem.swift; sourceTree = "<group>"; };
 		447D88EF21478F5300FD48FE /* CourseKeyTableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseKeyTableItem.swift; sourceTree = "<group>"; };
 		447D88F021478F5300FD48FE /* SearchCourseCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCourseCellItem.swift; sourceTree = "<group>"; };
+		44811371214F579100FAE54C /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		44811374214F78B700FAE54C /* AlertViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewRequest.swift; sourceTree = "<group>"; };
+		4481137B214F934200FAE54C /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		4481137D214F93B000FAE54C /* HudRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudRequest.swift; sourceTree = "<group>"; };
+		44811381214F9B8500FAE54C /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +158,7 @@
 		444A4F70213E1BDA00FBCEFD /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				44811373214F78A000FAE54C /* View */,
 				44C94A9F21424A2F003DDA45 /* Helper */,
 				44618BA52140D15A004C307B /* Callback */,
 				44618BA72140D15A004C307B /* Command */,
@@ -168,14 +177,6 @@
 				445A967021490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift */,
 			);
 			path = DBRequest;
-			sourceTree = "<group>";
-		};
-		445E7A32214A0016006830DC /* CourseRequest */ = {
-			isa = PBXGroup;
-			children = (
-				445E7A33214A0052006830DC /* SearchAddCourseRequest.swift */,
-			);
-			path = CourseRequest;
 			sourceTree = "<group>";
 		};
 		44618BA52140D15A004C307B /* Callback */ = {
@@ -197,6 +198,7 @@
 		44797E94213D2FC200DDA614 = {
 			isa = PBXGroup;
 			children = (
+				44811376214F917C00FAE54C /* THIRD */,
 				444A4F70213E1BDA00FBCEFD /* Foundation */,
 				447B73882142139100298EF6 /* DemoFoundation */,
 				44797E9F213D2FC200DDA614 /* Demo */,
@@ -271,7 +273,6 @@
 		447B738E2142139100298EF6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				445E7A32214A0016006830DC /* CourseRequest */,
 				445A96562148BA84002B06C7 /* DBRequest */,
 				447B738F2142139100298EF6 /* ServerRequest */,
 			);
@@ -328,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				447D88EA21478F5200FD48FE /* DemoNavigationController.swift */,
+				44811371214F579100FAE54C /* RootViewController.swift */,
 			);
 			path = ContainerViewController;
 			sourceTree = "<group>";
@@ -351,10 +353,36 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
+		44811373214F78A000FAE54C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44811374214F78B700FAE54C /* AlertViewRequest.swift */,
+				4481137D214F93B000FAE54C /* HudRequest.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44811376214F917C00FAE54C /* THIRD */ = {
+			isa = PBXGroup;
+			children = (
+				4481137A214F934200FAE54C /* SwiftNotice */,
+			);
+			path = THIRD;
+			sourceTree = "<group>";
+		};
+		4481137A214F934200FAE54C /* SwiftNotice */ = {
+			isa = PBXGroup;
+			children = (
+				4481137B214F934200FAE54C /* SwiftNotice.swift */,
+			);
+			path = SwiftNotice;
+			sourceTree = "<group>";
+		};
 		44C94A9F21424A2F003DDA45 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				44C94AA021424A41003DDA45 /* StringHelper.swift */,
+				44811381214F9B8500FAE54C /* ErrorExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -563,19 +591,23 @@
 				447D88FB21478F5300FD48FE /* SearchCourseTableItem.swift in Sources */,
 				44618BA82140D15A004C307B /* Callback.swift in Sources */,
 				447B73952142139100298EF6 /* DemoUIDefine.swift in Sources */,
+				4481137E214F93B000FAE54C /* HudRequest.swift in Sources */,
 				445A96652148C46D002B06C7 /* CourseKeyCell.swift in Sources */,
 				445A96612148C35C002B06C7 /* Demo.xcdatamodeld in Sources */,
 				445A96672148C490002B06C7 /* CourseKeyListViewController.swift in Sources */,
 				447B73962142139100298EF6 /* DemoPackDefine.swift in Sources */,
 				447D88FC21478F5300FD48FE /* CourseKeyTableItem.swift in Sources */,
+				4481137C214F934200FAE54C /* SwiftNotice.swift in Sources */,
 				447848A9214106E70070B560 /* ProtocolCommand.swift in Sources */,
-				445E7A34214A0052006830DC /* SearchAddCourseRequest.swift in Sources */,
 				44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */,
 				447D88FA21478F5300FD48FE /* ViewController.swift in Sources */,
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				447B739B2142139100298EF6 /* SearchCourseRequest.swift in Sources */,
+				44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */,
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,
+				44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */,
 				447B73972142139100298EF6 /* DemoColorDefine.swift in Sources */,
+				44811372214F579100FAE54C /* RootViewController.swift in Sources */,
 				445A967121490897002B06C7 /* CourseKeyEntity+CoreDataClass.swift in Sources */,
 				445A96582148BAC1002B06C7 /* AddCourseKeyRequest.swift in Sources */,
 				445A96632148C42F002B06C7 /* CourseKeyCellItem.swift in Sources */,
