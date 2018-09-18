@@ -10,7 +10,7 @@ import UIKit
 
 class ProtocolCommand: NSObject {
     
-    var target : AnyObject!
+    weak var target : AnyObject!
     var selector : Selector!
     init(target:AnyObject, selector:Selector)
     {

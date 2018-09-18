@@ -50,8 +50,6 @@ extension Error{
             {
                 return err.msg
             }
-            
-            return nil
         }
     }
     

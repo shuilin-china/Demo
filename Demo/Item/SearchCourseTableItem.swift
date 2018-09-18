@@ -16,7 +16,7 @@ class SearchCourseTableItem: NSObject {
     var clickCourseCellCommand : ProtocolCommand?
     var offset : Int = 0;
     @objc dynamic var bEmpty : Bool = true
-    var currentLoadRequest : SearchCourseRequest?
+    weak var currentLoadRequest : SearchCourseRequest?
     
     deinit{
         print("(-) SearchCourseTableItem")
