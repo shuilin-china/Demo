@@ -4,5 +4,6 @@ inhibit_all_warnings!
 
 target 'Demo' do
     pod 'Alamofire', '~> 4.7'
+    pod 'ZHRefresh'
 end
 

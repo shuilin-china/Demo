@@ -15,6 +15,7 @@ class SearchCourseTableItem: NSObject {
     var items : Array<Any> = Array()
     var clickCourseCellCommand : ProtocolCommand?
     var offset : Int = 0;
+    @objc dynamic var bEmpty : Bool = true
     
     deinit{
         print("(-) SearchCourseTableItem")
@@ -66,14 +67,22 @@ class SearchCourseTableItem: NSObject {
         request.keyword = text!
         request.offset = self.offset
         request.limit = 6
-        request.send { (error) in
+        request.send { (err) in
             
+            var error = err
             if error == nil //成功
             {
                 //print(request.courseInfos)
-                self.onAppend(infos: request.courseInfos)
-                
-                self.offset += request.limit
+                if request.courseInfos.count > 0
+                {
+                    self.onAppend(infos: request.courseInfos)
+                    
+                    self.offset += request.limit
+                }
+                else
+                {
+                    error = NSError.create(code: 10, message: "没有更多课程了")
+                }
             }
             
             callback(error)
@@ -103,6 +112,8 @@ class SearchCourseTableItem: NSObject {
                 self.items.append(item)
             }
         }
+        
+        self.bEmpty = (self.items.count == 0)
     }
     
     func sectionCount() -> Int

@@ -10,16 +10,29 @@ import UIKit
 
 class SearchCourseViewController: UIViewController {
 
+    var _item : SearchCourseTableItem?
     var item : SearchCourseTableItem?
     {
-        didSet{
-            self.item?.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
-            self.listViewController?.item = self.item
+        get{
+            return _item
         }
+        
+        set{
+            
+            self.removeItemKVO()
+            
+            _item = newValue
+            
+            self.addItemKVO()
+        
+            _item?.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
+            self.listViewController?.item = _item
+        }
+
     }
     
     var listViewController : SearchCourseListViewController?
-    
+    var emptyViewController : SearchCourseEmptyViewController?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -29,7 +42,10 @@ class SearchCourseViewController: UIViewController {
         {
             self.listViewController = vc
         }
-        
+        if let vc = storyboard.instantiateViewController(withIdentifier: "SearchCourseEmptyViewController") as? SearchCourseEmptyViewController
+        {
+            self.emptyViewController = vc
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +54,7 @@ class SearchCourseViewController: UIViewController {
     
     deinit{
         print("(-) SearchCourseViewController")
+        self.item = nil
     }
     
     override func viewDidLoad() {
@@ -46,6 +63,7 @@ class SearchCourseViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.addViews()
     
+        self.updateUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,6 +94,14 @@ class SearchCourseViewController: UIViewController {
         {
             self.addChildViewController(self.listViewController!)
             self.view.addSubview(self.listViewController!.view)
+            self.listViewController!.view.isHidden = true
+        }
+        
+        if self.emptyViewController != nil
+        {
+            self.addChildViewController(self.emptyViewController!)
+            self.view.addSubview(self.emptyViewController!.view)
+            self.emptyViewController!.view.isHidden = true
         }
     }
     
@@ -86,6 +112,19 @@ class SearchCourseViewController: UIViewController {
         let height : CGFloat = rect.size.height
         
         self.listViewController?.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+    }
+    
+    func updateUI()
+    {
+        if self.listViewController != nil && self.item != nil
+        {
+            self.listViewController!.view.isHidden = self.item!.bEmpty
+        }
+        
+        if self.emptyViewController != nil  && self.item != nil
+        {
+            self.emptyViewController!.view.isHidden = !self.item!.bEmpty
+        }
     }
     
     
@@ -103,7 +142,7 @@ class SearchCourseViewController: UIViewController {
             request.show {
                 
             }
-    
+            
         }
         else
         {
@@ -111,4 +150,33 @@ class SearchCourseViewController: UIViewController {
         }
         
     }
+    
+    func addItemKVO()
+    {
+        self.item?.addObserver(self, forKeyPath: "bEmpty", options: [.new, .old], context: nil)
+    }
+    
+    func removeItemKVO()
+    {
+        self.item?.removeObserver(self, forKeyPath: "bEmpty", context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let item = object as? SearchCourseTableItem
+        {
+            if item == self.item
+            {
+                if keyPath == "bEmpty"
+                {
+                    self.updateUI()
+                }
+            }
+        }
+        else
+        {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+
+    
 }

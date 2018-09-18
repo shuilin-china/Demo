@@ -11,6 +11,7 @@ import UIKit
 class SearchCourseListViewController: UITableViewController {
 
     var item : SearchCourseTableItem?
+    var pullRequest : PullViewRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,11 @@ class SearchCourseListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
+        self.pullRequest = PullViewRequest(view: self.tableView)
+        self.pullRequest?.pullDownCommand = ProtocolCommand(target: self, selector: #selector(onPullDown(params:)))
+        self.pullRequest?.pullUpCommand = ProtocolCommand(target: self, selector: #selector(onPullUp(params:)))
+        self.pullRequest?.prepare()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +76,42 @@ class SearchCourseListViewController: UITableViewController {
         let item = self.item?.cellItemAt(indexPath: indexPath)
         
         item?.clickCommand?.execute([item])
+    }
+    
+    @objc func onPullDown(params:[Any])
+    {
+        //print("pull down")
+        self.item?.onSearch(callback: { (error) in
+            
+            self.pullRequest?.endPullDown()
+            
+            if error == nil
+            {
+                self.tableView.reloadData()
+            }
+            else
+            {
+                HudRequest.show(text: error?.msg)
+            }
+        })
+    }
+    
+    @objc func onPullUp(params:[Any])
+    {
+        //print("pull up")
+        self.item?.onSearchMore(callback: { (error) in
+            
+            self.pullRequest?.endPullUp()
+            
+            if error == nil
+            {
+                self.tableView.reloadData()
+            }
+            else
+            {
+                HudRequest.show(text: error?.msg)
+            }
+        })
     }
 
 }
