@@ -16,6 +16,7 @@ class SearchCourseTableItem: NSObject {
     var clickCourseCellCommand : ProtocolCommand?
     var offset : Int = 0;
     @objc dynamic var bEmpty : Bool = true
+    var currentLoadRequest : SearchCourseRequest?
     
     deinit{
         print("(-) SearchCourseTableItem")
@@ -37,7 +38,16 @@ class SearchCourseTableItem: NSObject {
         request.keyword = text!
         request.offset = self.offset
         request.limit = 9
+        
+        self.currentLoadRequest = request
         request.send { (error) in
+            
+            if request != self.currentLoadRequest
+            {
+                let err = NSError.create(code: kErrorCode_Cancel, message: "已取消本次请求")
+                callback(err)
+                return
+            }
             
             if error == nil //成功
             {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SearchCourseRequest: NSObject {
     
@@ -37,6 +38,26 @@ class SearchCourseRequest: NSObject {
         request.url = url
         request.method = .HTTP_GET
         
+        request.send { (error) in
+            
+            if error == nil
+            {
+                let infoDicts = JSON(request.response)["courses"].array
+                let infos : Array<Any>? = SearchCourseInfo.createInfos(dicts: infoDicts)
+                
+                if infos != nil
+                {
+                    self.courseInfos = self.courseInfos + infos!        //不能用append
+                }
+                
+            }
+            
+            callback(error)
+        }
+        
+        
+        
+        /*
         request.send { (error) in
             if error == nil
             {
@@ -76,7 +97,7 @@ class SearchCourseRequest: NSObject {
             }
             
             callback(error)
-        }
-        
+        }*/
+ 
     }
 }

@@ -131,6 +131,8 @@ class ViewController: UIViewController {
     
     @IBAction func onClickSearchButton(sender:AnyObject)
     {
+        self.keyTextField?.resignFirstResponder()
+        
         let key = self.keyTextField?.text
         
         //记录
@@ -196,6 +198,11 @@ class ViewController: UIViewController {
         HudRequest.showLoading(true)
         
         item.onSearch { (error) in
+            
+            if error?.code == kErrorCode_Cancel
+            {
+                return
+            }
             
             HudRequest.showLoading(false)
             

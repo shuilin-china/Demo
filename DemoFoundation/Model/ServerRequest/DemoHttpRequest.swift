@@ -46,7 +46,7 @@ class DemoHttpRequest: NSObject {
                 switch response.result {
                     
                 case .success(let json):
-                    self.response = json as Any
+                    self.response = json as Any?
                     callback(nil)
                     
                 case .failure(let error):

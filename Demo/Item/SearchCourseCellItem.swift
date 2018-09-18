@@ -19,9 +19,9 @@ class SearchCourseCellItem: NSObject {
     
     func onUpdate(info : SearchCourseInfo)
     {
-        self.title = info.name
-        self.desc = info.org_name
-        self.imageUrl = info.thumbImageUrl
+        self.title = exString(info.name)
+        self.desc = exString(info.org_name)
+        self.imageUrl = exString(info.thumbImageUrl)
         self.height = 70
     }
 }

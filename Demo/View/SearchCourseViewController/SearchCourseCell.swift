@@ -16,6 +16,7 @@ class SearchCourseCell: UITableViewCell {
             
             self.titleLabel?.text = self.item?.title
             self.descLabel?.text = self.item?.desc
+            self.titleImageView?.setImageUrl(self.item?.imageUrl, placeholder: UIImage(named: "image_default_holder"))
         }
     }
     

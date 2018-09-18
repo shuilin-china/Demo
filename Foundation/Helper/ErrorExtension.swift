@@ -54,4 +54,14 @@ extension Error{
             return nil
         }
     }
+    
+    var code : Int
+    {
+        get{
+            if let err = self as? NSError
+            {
+                return err.code
+            }
+        }
+    }
 }
