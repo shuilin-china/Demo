@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         let key = self.keyTextField?.text
         
         //记录
-        self.courseKeyTableItem.onAddKey(key: key) { (error) in
+        self.courseKeyTableItem.onAddKey(key) { (error) in
             
         }
         

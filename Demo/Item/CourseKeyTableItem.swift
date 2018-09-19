@@ -14,8 +14,9 @@ class CourseKeyTableItem: NSObject {
     var items : Array<Any> = Array()
     var clickKeyCellCommand : ProtocolCommand?
     
-    func onAddKey(key:String?, callback:@escaping ResultCallback)
+    func onAddKey(_ keyText:String?, callback:@escaping ResultCallback)
     {
+        let key = keyText?.trimmingCharacters(in: .whitespaces)
         if key == nil || key!.count == 0
         {
             let error : NSError = NSError(domain: "关键字不能为空", code: 1, userInfo: nil)

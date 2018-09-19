@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32C44B9ADDA18470643F6EEF /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11222E8A4DD46335E134EEEC /* Pods_Demo.framework */; };
+		441E12D02151E260008D30A2 /* Readme in Resources */ = {isa = PBXBuildFile; fileRef = 441E12CF2151E260008D30A2 /* Readme */; };
 		444A4F78213E734E00FBCEFD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444A4F77213E734E00FBCEFD /* Alamofire.framework */; };
 		445A96582148BAC1002B06C7 /* AddCourseKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A96572148BAC1002B06C7 /* AddCourseKeyRequest.swift */; };
 		445A965A2148BAE0002B06C7 /* QueryCourseKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A96592148BAE0002B06C7 /* QueryCourseKeyRequest.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		11222E8A4DD46335E134EEEC /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1905F34FA3DAF1E862FCA626 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		441E12CF2151E260008D30A2 /* Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		444A4F75213E72E100FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A4F77213E734E00FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		445A96572148BAC1002B06C7 /* AddCourseKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseKeyRequest.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				447D88E121478F5200FD48FE /* SearchCourse.storyboard */,
 				447D88E321478F5200FD48FE /* Info.plist */,
 				445A965F2148C35C002B06C7 /* Demo.xcdatamodeld */,
+				441E12CF2151E260008D30A2 /* Readme */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				447D88F421478F5300FD48FE /* SearchCourse.storyboard in Resources */,
 				447D88F121478F5300FD48FE /* Assets.xcassets in Resources */,
 				447D88F521478F5300FD48FE /* Info.plist in Resources */,
+				441E12D02151E260008D30A2 /* Readme in Resources */,
 				447D88F221478F5300FD48FE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

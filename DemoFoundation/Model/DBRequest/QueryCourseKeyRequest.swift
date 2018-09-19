@@ -39,6 +39,8 @@ class QueryCourseKeyRequest: NSObject {
                 }
             }
             
+            keys = keys.reversed()
+            
             DispatchQueue.main.async {
                 
                 self.keys = keys

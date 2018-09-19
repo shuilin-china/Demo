@@ -24,7 +24,7 @@ class SearchCourseTableItem: NSObject {
     
     func onSearch(callback:@escaping ResultCallback) -> Void
     {
-        let text = self.text
+        let text = self.text?.trimmingCharacters(in: .whitespaces)
         
         if text == nil || text!.count == 0
         {
@@ -64,7 +64,7 @@ class SearchCourseTableItem: NSObject {
     
     func onSearchMore(callback:@escaping ResultCallback)
     {
-        let text = self.text
+        let text = self.text?.trimmingCharacters(in: .whitespaces)
         
         if text == nil || text!.count == 0
         {
