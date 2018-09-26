@@ -1,15 +1,16 @@
 //
-//  SearchCourseTableItem.swift
+//  SearchCourseCollectionItem.swift
 //  Demo
 //
-//  Created by Foryou on 2018/9/11.
+//  Created by Foryou on 2018/9/26.
 //  Copyright © 2018年 Foryou. All rights reserved.
 //
 
 import UIKit
 
-class SearchCourseTableItem: NSObject {
+class SearchCourseCollectionItem: NSObject {
 
+    
     var text : String?
     var courseInfos : Array<Any> = Array()
     var items : Array<Any> = Array()
@@ -17,11 +18,9 @@ class SearchCourseTableItem: NSObject {
     var offset : Int = 0;
     @objc dynamic var bEmpty : Bool = true
     weak var currentLoadRequest : SearchCourseRequest?
-    var pullingDown : Bool = false
-    var pullingUp : Bool = false
     
     deinit{
-        print("(-) SearchCourseTableItem")
+        print("(-) SearchCourseCollectionItem")
     }
     
     func onSearch(callback:@escaping ResultCallback) -> Void
@@ -117,7 +116,7 @@ class SearchCourseTableItem: NSObject {
         {
             if let info = temp as? SearchCourseInfo
             {
-                let item : SearchCourseCellItem = SearchCourseCellItem()
+                let item : SearchCourseRectItem = SearchCourseRectItem()
                 item.onUpdate(info: info)
                 item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
                 
@@ -138,13 +137,13 @@ class SearchCourseTableItem: NSObject {
         return self.items.count
     }
     
-    func cellItemAt(indexPath:IndexPath) -> SearchCourseCellItem?
+    func cellItemAt(indexPath:IndexPath) -> SearchCourseRectItem?
     {
         let index = indexPath.row
         
         if index < self.items.count
         {
-            return self.items[index] as? SearchCourseCellItem
+            return self.items[index] as? SearchCourseRectItem
         }
         
         return nil
@@ -154,5 +153,4 @@ class SearchCourseTableItem: NSObject {
     {
         self.clickCourseCellCommand?.execute(params)
     }
-    
 }

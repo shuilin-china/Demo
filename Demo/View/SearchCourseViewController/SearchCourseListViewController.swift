@@ -26,6 +26,7 @@ class SearchCourseListViewController: UITableViewController {
         self.pullRequest?.pullDownCommand = ProtocolCommand(target: self, selector: #selector(onPullDown(params:)))
         self.pullRequest?.pullUpCommand = ProtocolCommand(target: self, selector: #selector(onPullUp(params:)))
         self.pullRequest?.prepare()
+    
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,8 +10,8 @@ import UIKit
 
 class SearchCourseViewController: UIViewController {
 
-    var _item : SearchCourseTableItem?
-    var item : SearchCourseTableItem?
+    var _item : SearchCourseViewItem?
+    var item : SearchCourseViewItem?
     {
         get{
             return _item
@@ -25,8 +25,8 @@ class SearchCourseViewController: UIViewController {
             
             self.addItemKVO()
         
-            _item?.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
-            self.listViewController?.item = _item
+            _item?.tableItem.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
+            self.listViewController?.item = _item?.tableItem
         }
 
     }
@@ -118,31 +118,28 @@ class SearchCourseViewController: UIViewController {
     {
         if self.listViewController != nil && self.item != nil
         {
-            self.listViewController!.view.isHidden = self.item!.bEmpty
+            self.listViewController!.view.isHidden = self.item!.tableItem.bEmpty
         }
         
         if self.emptyViewController != nil  && self.item != nil
         {
-            self.emptyViewController!.view.isHidden = !self.item!.bEmpty
+            self.emptyViewController!.view.isHidden = !self.item!.tableItem.bEmpty
         }
     }
     
     
     @objc func onClickCourseItem(params:Array<Any>)
     {
-        let item = params[0] as? SearchCourseCellItem
-
-        if item != nil
+        if let item = params[0] as? SearchCourseCellItem
         {
             //print("onClickCourseItem : \(item!.title)")
             let request = AlertViewRequest()
             request.title = "课程"
-            request.message = item!.title
+            request.message = item.title
             request.onController = self
             request.show {
                 
             }
-            
         }
         else
         {
@@ -153,12 +150,12 @@ class SearchCourseViewController: UIViewController {
     
     func addItemKVO()
     {
-        self.item?.addObserver(self, forKeyPath: "bEmpty", options: [.new, .old], context: nil)
+        self.item?.addObserver(self, forKeyPath: "contentType", options: [.new, .old], context: nil)
     }
     
     func removeItemKVO()
     {
-        self.item?.removeObserver(self, forKeyPath: "bEmpty", context: nil)
+        self.item?.removeObserver(self, forKeyPath: "contentType", context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -166,7 +163,7 @@ class SearchCourseViewController: UIViewController {
         {
             if item == self.item
             {
-                if keyPath == "bEmpty"
+                if keyPath == "contentType"
                 {
                     self.updateUI()
                 }

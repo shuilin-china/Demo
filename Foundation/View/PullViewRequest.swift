@@ -36,14 +36,13 @@ class PullViewRequest: NSObject {
         
         //上拉加载更多
         let pullUpCommand = self.pullUpCommand
-        self.view.footer = ZHRefreshAutoNormalFooter.footerWithRefreshing {
+        self.view.footer = ZHRefreshBackNormalFooter.footerWithRefreshing {
         
             if pullUpCommand != nil
             {
                 pullUpCommand!.execute([])
             }
         }
-        
     }
     
     func endPullDown()
@@ -55,4 +54,15 @@ class PullViewRequest: NSObject {
     {
         self.view.footer?.endRefreshing()
     }
+    
+    func beginPullDown()
+    {
+        self.view.header?.beginRefreshing()
+    }
+    
+    func beginPullUp()
+    {
+        self.view.footer?.beginRefreshing()
+    }
+    
 }

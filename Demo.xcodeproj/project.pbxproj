@@ -56,6 +56,9 @@
 		4481137E214F93B000FAE54C /* HudRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481137D214F93B000FAE54C /* HudRequest.swift */; };
 		44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811381214F9B8500FAE54C /* ErrorExtension.swift */; };
 		44811384214FCE8D00FAE54C /* PullViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811383214FCE8D00FAE54C /* PullViewRequest.swift */; };
+		44917847215B818500D1E283 /* SearchCourseCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */; };
+		44917849215B822E00D1E283 /* SearchCourseRectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917848215B822E00D1E283 /* SearchCourseRectItem.swift */; };
+		4491784B215B848200D1E283 /* SearchCourseViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784A215B848200D1E283 /* SearchCourseViewItem.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		4481137D214F93B000FAE54C /* HudRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudRequest.swift; sourceTree = "<group>"; };
 		44811381214F9B8500FAE54C /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		44811383214FCE8D00FAE54C /* PullViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullViewRequest.swift; sourceTree = "<group>"; };
+		44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionItem.swift; sourceTree = "<group>"; };
+		44917848215B822E00D1E283 /* SearchCourseRectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseRectItem.swift; sourceTree = "<group>"; };
+		4491784A215B848200D1E283 /* SearchCourseViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseViewItem.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,10 +364,13 @@
 		447D88ED21478F5300FD48FE /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				447D88EE21478F5300FD48FE /* SearchCourseTableItem.swift */,
 				447D88EF21478F5300FD48FE /* CourseKeyTableItem.swift */,
-				447D88F021478F5300FD48FE /* SearchCourseCellItem.swift */,
 				445A96622148C42F002B06C7 /* CourseKeyCellItem.swift */,
+				447D88EE21478F5300FD48FE /* SearchCourseTableItem.swift */,
+				447D88F021478F5300FD48FE /* SearchCourseCellItem.swift */,
+				44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */,
+				44917848215B822E00D1E283 /* SearchCourseRectItem.swift */,
+				4491784A215B848200D1E283 /* SearchCourseViewItem.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -608,14 +617,17 @@
 				447B739A2142139100298EF6 /* DemoHttpRequest.swift in Sources */,
 				447D88F921478F5300FD48FE /* DemoNavigationController.swift in Sources */,
 				445A965A2148BAE0002B06C7 /* QueryCourseKeyRequest.swift in Sources */,
+				44917849215B822E00D1E283 /* SearchCourseRectItem.swift in Sources */,
 				447D88FD21478F5300FD48FE /* SearchCourseCellItem.swift in Sources */,
 				447D88F621478F5300FD48FE /* SearchCourseViewController.swift in Sources */,
 				447D88FB21478F5300FD48FE /* SearchCourseTableItem.swift in Sources */,
 				44618BA82140D15A004C307B /* Callback.swift in Sources */,
+				44917847215B818500D1E283 /* SearchCourseCollectionItem.swift in Sources */,
 				44811384214FCE8D00FAE54C /* PullViewRequest.swift in Sources */,
 				447B73952142139100298EF6 /* DemoUIDefine.swift in Sources */,
 				4481137E214F93B000FAE54C /* HudRequest.swift in Sources */,
 				445A96652148C46D002B06C7 /* CourseKeyCell.swift in Sources */,
+				4491784B215B848200D1E283 /* SearchCourseViewItem.swift in Sources */,
 				445A96612148C35C002B06C7 /* Demo.xcdatamodeld in Sources */,
 				445A96672148C490002B06C7 /* CourseKeyListViewController.swift in Sources */,
 				447B73962142139100298EF6 /* DemoPackDefine.swift in Sources */,

@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     var clearButton : UIButton = UIButton(type: UIButtonType.system)
-    let searchCourseTableItem = SearchCourseTableItem()
-    let courseKeyTableItem = CourseKeyTableItem()
+    weak var searchCourseViewItem : SearchCourseViewItem?
+    weak var courseKeyTableItem : CourseKeyTableItem?
+
     var keyListViewController : CourseKeyListViewController?
     @IBOutlet var keyTextField : UITextField?
     
@@ -36,9 +37,12 @@ class ViewController: UIViewController {
         if let vc = storyboard.instantiateViewController(withIdentifier: "CourseKeyListViewController") as? CourseKeyListViewController
         {
             self.keyListViewController = vc
+            let item = CourseKeyTableItem()
+            item.clickKeyCellCommand = ProtocolCommand(target: self, selector: #selector(onClickKeyItem(params:)))
+            vc.item = item
+            
+            self.courseKeyTableItem = item
         }
-        
-        self.courseKeyTableItem.clickKeyCellCommand = ProtocolCommand(target: self, selector: #selector(onClickKeyItem(params:)))
     }
     
     deinit {
@@ -51,9 +55,6 @@ class ViewController: UIViewController {
         
         //加载子视图
         self.addViews()
-        
-        //赋初值
-        self.keyListViewController?.item = self.courseKeyTableItem
         
         //加载
         self.reloadKeyListViewController()
@@ -136,7 +137,7 @@ class ViewController: UIViewController {
         let key = self.keyTextField?.text
         
         //记录
-        self.courseKeyTableItem.onAddKey(key) { (error) in
+        self.courseKeyTableItem?.onAddKey(key) { (error) in
             
         }
         
@@ -156,7 +157,7 @@ class ViewController: UIViewController {
             
             if request.index == 1
             {
-                self.courseKeyTableItem.onClear { (error) in
+                self.courseKeyTableItem?.onClear { (error) in
                     
                     if error == nil
                     {
@@ -178,28 +179,29 @@ class ViewController: UIViewController {
     
     func reloadKeyListViewController()
     {
-        self.courseKeyTableItem.onLoad { (error) in
+        self.courseKeyTableItem?.onLoad { (error) in
             
             if error == nil
             {
                 self.keyListViewController!.updateUI()
             }
             
-            self.clearButton.isHidden = self.courseKeyTableItem.isEmpty()
+            self.clearButton.isHidden = self.courseKeyTableItem == nil || self.courseKeyTableItem!.isEmpty()
         }
     }
     
     func searchKey(key:String?)
     {
-        let item : SearchCourseTableItem = self.searchCourseTableItem
+        let item : SearchCourseViewItem = SearchCourseViewItem()
         item.text = key
+        self.searchCourseViewItem = item
         
         //搜索课程
         HudRequest.showLoading(true)
         
         item.onSearch { (error) in
             
-            if error?.code == kErrorCode_Cancel
+            if item != self.searchCourseViewItem
             {
                 return
             }
