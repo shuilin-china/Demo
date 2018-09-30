@@ -27,12 +27,14 @@ class SearchCourseViewController: UIViewController {
         
             _item?.tableItem.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
             self.listViewController?.item = _item?.tableItem
+            self.collectionViewController?.item = _item?.collectionItem
         }
 
     }
     
     var listViewController : SearchCourseListViewController?
     var emptyViewController : SearchCourseEmptyViewController?
+    var collectionViewController : SearchCourseCollectionViewController?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -45,6 +47,10 @@ class SearchCourseViewController: UIViewController {
         if let vc = storyboard.instantiateViewController(withIdentifier: "SearchCourseEmptyViewController") as? SearchCourseEmptyViewController
         {
             self.emptyViewController = vc
+        }
+        if let vc = storyboard.instantiateViewController(withIdentifier: "SearchCourseCollectionViewController") as? SearchCourseCollectionViewController
+        {
+            self.collectionViewController = vc
         }
     }
     
@@ -90,6 +96,10 @@ class SearchCourseViewController: UIViewController {
     
     func addViews()
     {
+        let item = UIBarButtonItem(title: "change", style: UIBarButtonItemStyle.done, target: self, action: #selector(clickRightItem));
+        self.navigationItem.rightBarButtonItem = item;
+        
+        
         if self.listViewController != nil
         {
             self.addChildViewController(self.listViewController!)
@@ -103,6 +113,14 @@ class SearchCourseViewController: UIViewController {
             self.view.addSubview(self.emptyViewController!.view)
             self.emptyViewController!.view.isHidden = true
         }
+        
+        if self.collectionViewController != nil
+        {
+            self.addChildViewController(self.collectionViewController!)
+            self.view.addSubview(self.collectionViewController!.view)
+            self.collectionViewController!.view.isHidden = true
+        }
+        
     }
     
     func updateFrame()
@@ -112,19 +130,26 @@ class SearchCourseViewController: UIViewController {
         let height : CGFloat = rect.size.height
         
         self.listViewController?.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        self.collectionViewController?.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
     }
     
     func updateUI()
     {
-        if self.listViewController != nil && self.item != nil
-        {
-            self.listViewController!.view.isHidden = self.item!.tableItem.bEmpty
-        }
-        
         if self.emptyViewController != nil  && self.item != nil
         {
-            self.emptyViewController!.view.isHidden = !self.item!.tableItem.bEmpty
+            self.emptyViewController!.view.isHidden = (self.item!.contentType != 1)
         }
+        
+        if self.listViewController != nil && self.item != nil
+        {
+            self.listViewController!.view.isHidden = (self.item!.contentType != 2)
+        }
+        
+        if self.collectionViewController != nil  && self.item != nil
+        {
+            self.collectionViewController!.view.isHidden = (self.item!.contentType != 3)
+        }
+        
     }
     
     
@@ -159,7 +184,7 @@ class SearchCourseViewController: UIViewController {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let item = object as? SearchCourseTableItem
+        if let item = object as? SearchCourseViewItem
         {
             if item == self.item
             {
@@ -169,9 +194,10 @@ class SearchCourseViewController: UIViewController {
                 }
             }
         }
-        else
-        {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
+    }
+    
+    @objc func clickRightItem()
+    {
+        self.item?.onSwitch()
     }
 }

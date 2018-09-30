@@ -59,6 +59,8 @@
 		44917847215B818500D1E283 /* SearchCourseCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */; };
 		44917849215B822E00D1E283 /* SearchCourseRectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917848215B822E00D1E283 /* SearchCourseRectItem.swift */; };
 		4491784B215B848200D1E283 /* SearchCourseViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784A215B848200D1E283 /* SearchCourseViewItem.swift */; };
+		4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */; };
+		4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,8 @@
 		44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionItem.swift; sourceTree = "<group>"; };
 		44917848215B822E00D1E283 /* SearchCourseRectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseRectItem.swift; sourceTree = "<group>"; };
 		4491784A215B848200D1E283 /* SearchCourseViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseViewItem.swift; sourceTree = "<group>"; };
+		4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionViewController.swift; sourceTree = "<group>"; };
+		4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionCell.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +344,8 @@
 				445A96642148C46D002B06C7 /* CourseKeyCell.swift */,
 				445A96662148C490002B06C7 /* CourseKeyListViewController.swift */,
 				445E6B112150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift */,
+				4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */,
+				4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */,
 			);
 			path = SearchCourseViewController;
 			sourceTree = "<group>";
@@ -640,6 +646,7 @@
 				445E6B122150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift in Sources */,
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				447B739B2142139100298EF6 /* SearchCourseRequest.swift in Sources */,
+				4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */,
 				44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */,
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,
 				44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */,
@@ -651,6 +658,7 @@
 				445A967221490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift in Sources */,
 				445E6B1C2151326200FD3EF1 /* DemoErrorDefine.swift in Sources */,
 				44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */,
+				4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */,
 				445A965C2148BAF5002B06C7 /* ClearCourseKeyRequest.swift in Sources */,
 				447D88F721478F5300FD48FE /* SearchCourseCell.swift in Sources */,
 				445E7A36214A04A4006830DC /* DemoNotificationDefine.swift in Sources */,

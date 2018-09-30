@@ -17,8 +17,6 @@ class SearchCourseTableItem: NSObject {
     var offset : Int = 0;
     @objc dynamic var bEmpty : Bool = true
     weak var currentLoadRequest : SearchCourseRequest?
-    var pullingDown : Bool = false
-    var pullingUp : Bool = false
     
     deinit{
         print("(-) SearchCourseTableItem")

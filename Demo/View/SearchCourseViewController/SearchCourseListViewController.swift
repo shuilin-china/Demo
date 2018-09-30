@@ -12,6 +12,8 @@ class SearchCourseListViewController: UITableViewController {
 
     var item : SearchCourseTableItem?
     var pullRequest : PullViewRequest?
+    var pullingDown : Bool = false
+    var pullingUp : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +84,11 @@ class SearchCourseListViewController: UITableViewController {
     @objc func onPullDown(params:[Any])
     {
         //print("pull down")
+        self.pullingDown = true
         self.item?.onSearch(callback: { (error) in
             
             self.pullRequest?.endPullDown()
+            self.pullingDown = false
             
             if error == nil
             {
@@ -100,9 +104,11 @@ class SearchCourseListViewController: UITableViewController {
     @objc func onPullUp(params:[Any])
     {
         //print("pull up")
+        self.pullingUp = true
         self.item?.onSearchMore(callback: { (error) in
             
             self.pullRequest?.endPullUp()
+            self.pullingUp = false
             
             if error == nil
             {
@@ -113,6 +119,16 @@ class SearchCourseListViewController: UITableViewController {
                 HudRequest.show(text: error?.msg)
             }
         })
+    }
+    
+    func beginPullDown()
+    {
+        self.pullRequest?.beginPullDown()
+    }
+    
+    func beginPullup()
+    {
+        self.pullRequest?.beginPullUp()
     }
 
 }
