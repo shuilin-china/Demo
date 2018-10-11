@@ -19,7 +19,7 @@ class SearchCourseCollectionItem: NSObject {
     weak var currentLoadRequest : SearchCourseRequest?
     
     //瀑布流布局模型
-    let rectList = WaterFallRectList(column: 3)
+    let rectList = HeadWaterFallRectList()
     
     deinit{
         print("(-) SearchCourseCollectionItem")
@@ -27,6 +27,7 @@ class SearchCourseCollectionItem: NSObject {
     
     override init() {
         
+        self.rectList.column = 2
         self.rectList.sectionHeaderHeight = 30
     }
     
@@ -111,7 +112,7 @@ class SearchCourseCollectionItem: NSObject {
     {
         self.courseInfos.removeAll()
         self.items.removeAll()
-        self.rectList.clear()
+        self.rectList.reset()
         
         self.onAppend(infos: infos)
     }

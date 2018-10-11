@@ -115,6 +115,19 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let item = self.item?.rectList.fc_rectAt(indexPath: indexPath)
+        
+        if item != nil
+        {
+            return item!.size
+        }
+        
+        return CGSize(width: 0, height: 0)
+    }
+    
+    
     //返回HeadView的宽高
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     {
@@ -123,18 +136,6 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
         if height != nil
         {
             return CGSize(width: collectionView.bounds.size.width, height: height!)
-        }
-        
-        return CGSize(width: 0, height: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let item = self.item?.rectList.fc_rectAt(indexPath: indexPath)
-        
-        if item != nil
-        {
-            return item!.size
         }
         
         return CGSize(width: 0, height: 0)

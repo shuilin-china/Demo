@@ -75,7 +75,7 @@ class FCFlowLayout: UICollectionViewFlowLayout {
     }
     
 //    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-//        
+//
 //        return true
 //    }
     
@@ -85,11 +85,11 @@ class FCFlowLayout: UICollectionViewFlowLayout {
         {
             if attributes.representedElementKind == UICollectionElementKindSectionHeader
             {
-                
+                //不做处理
             }
             else if attributes.representedElementKind == UICollectionElementKindSectionFooter
             {
-                
+                //不做处理
             }
             else
             {

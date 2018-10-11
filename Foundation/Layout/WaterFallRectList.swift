@@ -12,30 +12,26 @@ import UIKit
 
 class WaterFallRectList: NSObject, FCRectList {
 
-    var column : UInt    //列数，最小为1
+    var column : UInt = 2   //列数，最小为1
     var insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //四个边距
     var inter : CGFloat = 10    //cell横向间距
     var lineSpace : CGFloat = 10 //cell纵向间距
     var width : CGFloat = 100   //视图宽度,外部要设置
-    var sectionHeaderHeight : CGFloat = 0.0 //头部高度
     
     var itemWidth : CGFloat{
         get{
+            if self.column == 0
+            {
+                return 0.0
+            }
+            
+            //平分宽度
             return ((self.width - self.insets.left - self.insets.right) - CGFloat(column - 1) * self.inter) / CGFloat(self.column)
         }
     }
     
     private(set) var rects : Array<CGRect> = Array()
     private(set) var columnHeights : Dictionary<UInt, CGFloat> = Dictionary() //每列的总高度
-    
-    init(column : UInt) {
-        
-        self.column = column
-        
-        super.init()
-        
-        self.clear()
-    }
     
     //增加rect
     func appendRect(itemHeight:CGFloat)
@@ -63,8 +59,8 @@ class WaterFallRectList: NSObject, FCRectList {
         self.columnHeights[j] = y + itemHeight
     }
     
-    //清空
-    func clear()
+    //重置
+    func reset()
     {
         self.rects.removeAll()
         self.columnHeights.removeAll()
@@ -123,7 +119,7 @@ class WaterFallRectList: NSObject, FCRectList {
     
     //获取开始的y值
     var beginY : CGFloat{
-        return self.sectionHeaderHeight + self.insets.top
+        return self.insets.top
     }
     
     //实现流布局协议

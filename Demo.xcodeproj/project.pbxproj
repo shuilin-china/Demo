@@ -64,6 +64,7 @@
 		4491784B215B848200D1E283 /* SearchCourseViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784A215B848200D1E283 /* SearchCourseViewItem.swift */; };
 		4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */; };
 		4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */; };
+		44988985216F66FF00EA91FC /* HeadWaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +151,7 @@
 		4491784A215B848200D1E283 /* SearchCourseViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseViewItem.swift; sourceTree = "<group>"; };
 		4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionViewController.swift; sourceTree = "<group>"; };
 		4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionCell.swift; sourceTree = "<group>"; };
+		44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadWaterFallRectList.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -421,6 +423,7 @@
 			children = (
 				44594B32216DE850003ECE5D /* FCFlowLayout.swift */,
 				44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */,
+				44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				44618BA82140D15A004C307B /* Callback.swift in Sources */,
 				44917847215B818500D1E283 /* SearchCourseCollectionItem.swift in Sources */,
 				44811384214FCE8D00FAE54C /* PullViewRequest.swift in Sources */,
+				44988985216F66FF00EA91FC /* HeadWaterFallRectList.swift in Sources */,
 				447B73952142139100298EF6 /* DemoUIDefine.swift in Sources */,
 				4481137E214F93B000FAE54C /* HudRequest.swift in Sources */,
 				445A96652148C46D002B06C7 /* CourseKeyCell.swift in Sources */,
