@@ -194,6 +194,7 @@ class ViewController: UIViewController {
     {
         let item : SearchCourseViewItem = SearchCourseViewItem()
         item.text = key
+        item.collectionItem.rectList.width = self.view.bounds.size.width
         self.searchCourseViewItem = item
         
         //搜索课程

@@ -27,6 +27,8 @@ class SearchCourseViewController: UIViewController {
         
             _item?.tableItem.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
             self.listViewController?.item = _item?.tableItem
+            
+            _item?.collectionItem.clickCourseCellCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseCOItem(params:)))
             self.collectionViewController?.item = _item?.collectionItem
         }
 
@@ -161,6 +163,26 @@ class SearchCourseViewController: UIViewController {
             let request = AlertViewRequest()
             request.title = "课程"
             request.message = item.title
+            request.onController = self
+            request.show {
+                
+            }
+        }
+        else
+        {
+            print("param 0 为空")
+        }
+        
+    }
+    
+    @objc func onClickCourseCOItem(params:Array<Any>)
+    {
+        if let item = params[0] as? SearchCourseRectItem
+        {
+            //print("onClickCourseItem : \(item!.title)")
+            let request = AlertViewRequest()
+            request.title = "课程"
+            request.message = item.title.string
             request.onController = self
             request.show {
                 

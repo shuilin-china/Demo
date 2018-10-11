@@ -10,6 +10,8 @@
 		32C44B9ADDA18470643F6EEF /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11222E8A4DD46335E134EEEC /* Pods_Demo.framework */; };
 		441E12D02151E260008D30A2 /* Readme in Resources */ = {isa = PBXBuildFile; fileRef = 441E12CF2151E260008D30A2 /* Readme */; };
 		444A4F78213E734E00FBCEFD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444A4F77213E734E00FBCEFD /* Alamofire.framework */; };
+		44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B32216DE850003ECE5D /* FCFlowLayout.swift */; };
+		44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */; };
 		445A96582148BAC1002B06C7 /* AddCourseKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A96572148BAC1002B06C7 /* AddCourseKeyRequest.swift */; };
 		445A965A2148BAE0002B06C7 /* QueryCourseKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A96592148BAE0002B06C7 /* QueryCourseKeyRequest.swift */; };
 		445A965C2148BAF5002B06C7 /* ClearCourseKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A965B2148BAF5002B06C7 /* ClearCourseKeyRequest.swift */; };
@@ -87,6 +89,8 @@
 		441E12CF2151E260008D30A2 /* Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		444A4F75213E72E100FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A4F77213E734E00FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44594B32216DE850003ECE5D /* FCFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFlowLayout.swift; sourceTree = "<group>"; };
+		44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallRectList.swift; sourceTree = "<group>"; };
 		445A96572148BAC1002B06C7 /* AddCourseKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseKeyRequest.swift; sourceTree = "<group>"; };
 		445A96592148BAE0002B06C7 /* QueryCourseKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCourseKeyRequest.swift; sourceTree = "<group>"; };
 		445A965B2148BAF5002B06C7 /* ClearCourseKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCourseKeyRequest.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		444A4F70213E1BDA00FBCEFD /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				44B38456216CACBF004E48AF /* Layout */,
 				44811373214F78A000FAE54C /* View */,
 				44C94A9F21424A2F003DDA45 /* Helper */,
 				44618BA52140D15A004C307B /* Callback */,
@@ -406,6 +411,15 @@
 				4481137B214F934200FAE54C /* SwiftNotice.swift */,
 			);
 			path = SwiftNotice;
+			sourceTree = "<group>";
+		};
+		44B38456216CACBF004E48AF /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				44594B32216DE850003ECE5D /* FCFlowLayout.swift */,
+				44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		44C94A9F21424A2F003DDA45 /* Helper */ = {
@@ -647,6 +661,7 @@
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				447B739B2142139100298EF6 /* SearchCourseRequest.swift in Sources */,
 				4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */,
+				44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */,
 				44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */,
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,
 				44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */,
@@ -660,6 +675,7 @@
 				44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */,
 				4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */,
 				445A965C2148BAF5002B06C7 /* ClearCourseKeyRequest.swift in Sources */,
+				44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */,
 				447D88F721478F5300FD48FE /* SearchCourseCell.swift in Sources */,
 				445E7A36214A04A4006830DC /* DemoNotificationDefine.swift in Sources */,
 				447B73942142139100298EF6 /* DemoHttpDefine.swift in Sources */,

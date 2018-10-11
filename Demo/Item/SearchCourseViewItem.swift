@@ -13,7 +13,7 @@ class SearchCourseViewItem: NSObject {
     var text : String?
     private(set) var tableItem = SearchCourseTableItem()
     private(set) var collectionItem = SearchCourseCollectionItem()
-    private(set) var currentListType : Int = 0   // 0 = table, 1 = collection
+    private(set) var currentListType : Int = 1   // 0 = table, 1 = collection
     @objc dynamic private(set) var contentType : Int = 0 // 0 = 无, 1 = empty, 2 = table, 3 = collection
     
     deinit{

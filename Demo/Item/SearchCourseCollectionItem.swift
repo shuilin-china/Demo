@@ -10,7 +10,6 @@ import UIKit
 
 class SearchCourseCollectionItem: NSObject {
 
-    
     var text : String?
     var courseInfos : Array<Any> = Array()
     var items : Array<Any> = Array()
@@ -18,6 +17,9 @@ class SearchCourseCollectionItem: NSObject {
     var offset : Int = 0;
     @objc dynamic var bEmpty : Bool = true
     weak var currentLoadRequest : SearchCourseRequest?
+    
+    //瀑布流布局模型
+    let rectList = WaterFallRectList(column: 3)
     
     deinit{
         print("(-) SearchCourseCollectionItem")
@@ -38,7 +40,7 @@ class SearchCourseCollectionItem: NSObject {
         let request : SearchCourseRequest = SearchCourseRequest()
         request.keyword = text!
         request.offset = self.offset
-        request.limit = 9
+        request.limit = 10
         
         self.currentLoadRequest = request
         request.send { (error) in
@@ -104,6 +106,7 @@ class SearchCourseCollectionItem: NSObject {
     {
         self.courseInfos.removeAll()
         self.items.removeAll()
+        self.rectList.clear()
         
         self.onAppend(infos: infos)
     }
@@ -117,10 +120,14 @@ class SearchCourseCollectionItem: NSObject {
             if let info = temp as? SearchCourseInfo
             {
                 let item : SearchCourseRectItem = SearchCourseRectItem()
-                item.onUpdate(info: info)
-                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
                 
+                let itemWidth = self.rectList.itemWidth
+                item.onUpdate(info: info,width: itemWidth)
+                item.clickCommand = ProtocolCommand(target: self, selector: #selector(onClickCourseItem(params:)))
+               
                 self.items.append(item)
+                
+                self.rectList.appendRect(itemHeight: item.height)
             }
         }
         
