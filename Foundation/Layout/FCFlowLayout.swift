@@ -11,7 +11,7 @@ import UIKit
 //自定义的流式布局
 
 protocol FCRectList {
-    var fc_size : CGSize {get}
+    var fc_size : CGSize { get }
     func fc_rectAt(indexPath : IndexPath) -> CGRect?
 }
 
@@ -52,9 +52,17 @@ class FCFlowLayout: UICollectionViewFlowLayout {
         return attributesInRect
     }
     
-    //    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-    //
-    //    }
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+
+        let attributes = super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath)
+        
+        if attributes != nil
+        {
+            self.modifyLayoutAttributes(attributes: attributes!)
+        }
+        
+        return attributes
+    }
     
     override var collectionViewContentSize: CGSize {
         
@@ -75,12 +83,24 @@ class FCFlowLayout: UICollectionViewFlowLayout {
     {
         if self.rectList != nil
         {
-            let indexPath = attributes.indexPath
-            if let rect = self.rectList!.fc_rectAt(indexPath: indexPath) //获取相应序号的rect
+            if attributes.representedElementKind == UICollectionElementKindSectionHeader
             {
-                //修改frame，达到新布局的效果
-                attributes.frame = rect
+                
             }
+            else if attributes.representedElementKind == UICollectionElementKindSectionFooter
+            {
+                
+            }
+            else
+            {
+                let indexPath = attributes.indexPath
+                if let rect = self.rectList!.fc_rectAt(indexPath: indexPath) //获取相应序号的rect
+                {
+                    //修改frame，达到新布局的效果
+                    attributes.frame = rect
+                }
+            }
+            
         }
     }
     

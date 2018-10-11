@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "SearchCourseCollectionCell"
+private let headerIdentifier = "CollectionReusableViewHeader"
 
 class SearchCourseCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -26,10 +27,14 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
         
         //设置瀑布流布局
         let layout = FCFlowLayout()
+        layout.sectionHeadersPinToVisibleBounds = true
         layout.rectList = self.item?.rectList
         self.collectionView?.collectionViewLayout = layout
         
         // Register cell classes
+        
+        self.collectionView!.register(SearchCourseHeaderView.self, forSupplementaryViewOfKind:UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        
         //self.collectionView!.register(SearchCourseCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         //self.collectionView?.register(UINib(nibName: "SearchCourseCollectionCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
@@ -95,6 +100,32 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
         let item = self.item?.cellItemAt(indexPath: indexPath)
         
         item?.clickCommand?.execute([item])
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        var reusableview:UICollectionReusableView!
+        
+        if kind == UICollectionElementKindSectionHeader
+        {
+            reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! SearchCourseHeaderView
+        }
+        
+        return reusableview
+        
+    }
+    
+    //返回HeadView的宽高
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+    {
+        let height = self.item?.rectList.sectionHeaderHeight
+        
+        if height != nil
+        {
+            return CGSize(width: collectionView.bounds.size.width, height: height!)
+        }
+        
+        return CGSize(width: 0, height: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

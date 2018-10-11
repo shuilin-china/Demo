@@ -17,6 +17,7 @@ class WaterFallRectList: NSObject, FCRectList {
     var inter : CGFloat = 10    //cell横向间距
     var lineSpace : CGFloat = 10 //cell纵向间距
     var width : CGFloat = 100   //视图宽度,外部要设置
+    var sectionHeaderHeight : CGFloat = 0.0 //头部高度
     
     var itemWidth : CGFloat{
         get{
@@ -52,7 +53,7 @@ class WaterFallRectList: NSObject, FCRectList {
         
         //确定此项左上角坐标
         let x = self.insets.left + CGFloat(j) * (itemWidth + self.inter)
-        let y = (h == self.insets.top) ? self.insets.top : h + self.lineSpace
+        let y = (h == self.beginY) ? h : h + self.lineSpace
         
         //记录下计算结果
         let rect = CGRect(x: x, y: y, width: itemWidth, height: itemHeight)
@@ -71,7 +72,7 @@ class WaterFallRectList: NSObject, FCRectList {
         //设置每列总高度的初始值
         for i in 0..<self.column
         {
-            self.columnHeights[i] = self.insets.top
+            self.columnHeights[i] = self.beginY
         }
     }
     
@@ -118,6 +119,11 @@ class WaterFallRectList: NSObject, FCRectList {
         }
         
         return maxHeight!
+    }
+    
+    //获取开始的y值
+    var beginY : CGFloat{
+        return self.sectionHeaderHeight + self.insets.top
     }
     
     //实现流布局协议

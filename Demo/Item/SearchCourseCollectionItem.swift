@@ -25,6 +25,11 @@ class SearchCourseCollectionItem: NSObject {
         print("(-) SearchCourseCollectionItem")
     }
     
+    override init() {
+        
+        self.rectList.sectionHeaderHeight = 30
+    }
+    
     func onSearch(callback:@escaping ResultCallback) -> Void
     {
         let text = self.text?.trimmingCharacters(in: .whitespaces)

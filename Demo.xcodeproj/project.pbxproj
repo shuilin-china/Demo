@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32C44B9ADDA18470643F6EEF /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11222E8A4DD46335E134EEEC /* Pods_Demo.framework */; };
 		441E12D02151E260008D30A2 /* Readme in Resources */ = {isa = PBXBuildFile; fileRef = 441E12CF2151E260008D30A2 /* Readme */; };
+		442B1116216F3DA700A39FA2 /* SearchCourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B1115216F3DA700A39FA2 /* SearchCourseHeaderView.swift */; };
 		444A4F78213E734E00FBCEFD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444A4F77213E734E00FBCEFD /* Alamofire.framework */; };
 		44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B32216DE850003ECE5D /* FCFlowLayout.swift */; };
 		44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */; };
@@ -87,6 +88,7 @@
 		11222E8A4DD46335E134EEEC /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1905F34FA3DAF1E862FCA626 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		441E12CF2151E260008D30A2 /* Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
+		442B1115216F3DA700A39FA2 /* SearchCourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseHeaderView.swift; sourceTree = "<group>"; };
 		444A4F75213E72E100FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A4F77213E734E00FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44594B32216DE850003ECE5D /* FCFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFlowLayout.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				445E6B112150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift */,
 				4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */,
 				4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */,
+				442B1115216F3DA700A39FA2 /* SearchCourseHeaderView.swift */,
 			);
 			path = SearchCourseViewController;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,
 				44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */,
 				447B73972142139100298EF6 /* DemoColorDefine.swift in Sources */,
+				442B1116216F3DA700A39FA2 /* SearchCourseHeaderView.swift in Sources */,
 				44811372214F579100FAE54C /* RootViewController.swift in Sources */,
 				445A967121490897002B06C7 /* CourseKeyEntity+CoreDataClass.swift in Sources */,
 				445A96582148BAC1002B06C7 /* AddCourseKeyRequest.swift in Sources */,
