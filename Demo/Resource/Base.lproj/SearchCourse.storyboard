@@ -148,7 +148,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SearchCourseCollectionCell" reuseIdentifier="SearchCourseCollectionCell" id="0HD-Mt-qBp" customClass="SearchCourseCollectionCell" customModule="Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="177"/>
+                                <rect key="frame" x="127.5" y="0.0" width="120" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="177"/>
@@ -198,6 +198,15 @@
                                     <outlet property="titleHeight" destination="fDe-ec-EBK" id="qGg-hd-8HB"/>
                                     <outlet property="titleImageView" destination="QrZ-rR-6W8" id="Ixf-ND-rqo"/>
                                 </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SearchCourseSummaryCell" reuseIdentifier="SearchCourseSummaryCell" id="Gj1-U7-hKY" customClass="SearchCourseSummaryCell" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="14.5" y="187" width="346" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="262"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <size key="customSize" width="346" height="262"/>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -30,7 +30,7 @@ class WaterFallRectList: NSObject, FCRectList {
         }
     }
     
-    private(set) var rects : Array<CGRect> = Array()
+    var rects : Array<CGRect> = Array()
     private(set) var columnHeights : Dictionary<UInt, CGFloat> = Dictionary() //每列的总高度
     
     //增加rect
@@ -64,8 +64,12 @@ class WaterFallRectList: NSObject, FCRectList {
     {
         self.rects.removeAll()
         self.columnHeights.removeAll()
-        
-        //设置每列总高度的初始值
+        self.resetColumnHeights()
+    }
+    
+    //设置每列总高度的初始值
+    func resetColumnHeights()
+    {
         for i in 0..<self.column
         {
             self.columnHeights[i] = self.beginY

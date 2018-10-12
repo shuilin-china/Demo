@@ -114,6 +114,11 @@ class SearchCourseCollectionItem: NSObject {
         self.items.removeAll()
         self.rectList.reset()
         
+        let item = SearchCourseSummaryItem()
+        item.size = CGSize(width: self.rectList.width, height: 120)
+        self.items.append(item)
+        self.rectList.appendSummaryRect(itemHeight: item.size.height)
+        
         self.onAppend(infos: infos)
     }
     
@@ -133,7 +138,7 @@ class SearchCourseCollectionItem: NSObject {
                
                 self.items.append(item)
                 
-                self.rectList.appendRect(itemHeight: item.height)
+                self.rectList.appendRect(itemHeight: item.size.height)
             }
         }
         
@@ -150,13 +155,13 @@ class SearchCourseCollectionItem: NSObject {
         return self.items.count
     }
     
-    func cellItemAt(indexPath:IndexPath) -> SearchCourseRectItem?
+    func cellItemAt(indexPath:IndexPath) -> SearchCourseCOItem?
     {
         let index = indexPath.row
         
         if index < self.items.count
         {
-            return self.items[index] as? SearchCourseRectItem
+            return self.items[index] as? SearchCourseCOItem
         }
         
         return nil

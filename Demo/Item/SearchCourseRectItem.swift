@@ -10,16 +10,20 @@ import UIKit
 
 //SearchCourseCollectionItem的单元格模型
 
-class SearchCourseRectItem: NSObject {
+class SearchCourseCOItem: NSObject {
+    
+    var size : CGSize = CGSize(width: 0.0, height: 0.0)
+    
+    var clickCommand : ProtocolCommand?
+}
+
+class SearchCourseRectItem: SearchCourseCOItem {
 
     var title : NSMutableAttributedString = NSMutableAttributedString(string: "")
     var desc : NSMutableAttributedString = NSMutableAttributedString(string: "")
     var imageUrl : String = ""
-    var height : CGFloat = 0.0
     var titleHeight : CGFloat = 0.0
     var descHeight : CGFloat = 0.0
-    
-    var clickCommand : ProtocolCommand?
     
     func onUpdate(info : SearchCourseInfo, width : CGFloat)
     {
@@ -59,8 +63,16 @@ class SearchCourseRectItem: NSObject {
         
         //print("titleHeight : \(titleHeight)")
         
-        //计算整个单元格高度
+        //计算整个单元格尺寸
         let height = width * 27.0 / 40.0 + titleHeight + descHeight + 30
-        self.height = height
+        self.size = CGSize(width: width, height: height)
     }
 }
+
+
+class SearchCourseSummaryItem: SearchCourseCOItem {
+    
+    
+}
+
+

@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "SearchCourseCollectionCell"
+private let summaryReuseIdentifier = "SearchCourseSummaryCell"
 private let headerIdentifier = "CollectionReusableViewHeader"
 
 class SearchCourseCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -85,13 +86,21 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let item = self.item?.cellItemAt(indexPath: indexPath)
+        if let cellItem = self.item?.cellItemAt(indexPath: indexPath) as? SearchCourseSummaryItem
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: summaryReuseIdentifier, for: indexPath) as! SearchCourseSummaryCell
+            
+            return cell
+        }
+        else if let cellItem = self.item?.cellItemAt(indexPath: indexPath) as? SearchCourseRectItem
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCourseCollectionCell
+            cell.item = cellItem
+            return cell
+        }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCourseCollectionCell
-        cell.item = item
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "default_cell", for: indexPath)
         
-        // Configure the cell
-    
         return cell
     }
     
@@ -117,7 +126,7 @@ class SearchCourseCollectionViewController: UICollectionViewController, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let item = self.item?.rectList.fc_rectAt(indexPath: indexPath)
+        let item = self.item?.cellItemAt(indexPath: indexPath)
         
         if item != nil
         {

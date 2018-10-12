@@ -51,3 +51,18 @@ class SearchCourseCollectionCell: UICollectionViewCell {
 //        super.init(coder: aDecoder)
 //    }
 }
+
+
+class SearchCourseSummaryCell: UICollectionViewCell {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        self.contentView.backgroundColor = UIColor.brown
+        //self.nameLabel?.backgroundColor = UIColor.orange
+    }
+    
+}
+
+
