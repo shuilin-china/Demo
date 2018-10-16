@@ -28,6 +28,9 @@
 		445E7A36214A04A4006830DC /* DemoNotificationDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E7A35214A04A4006830DC /* DemoNotificationDefine.swift */; };
 		445E7A38214A32FF006830DC /* DemoCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E7A37214A32FF006830DC /* DemoCoreDataManager.swift */; };
 		44618BA82140D15A004C307B /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44618BA62140D15A004C307B /* Callback.swift */; };
+		446C32842175B180008C621D /* DemoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C32832175B180008C621D /* DemoWebViewController.swift */; };
+		446C32882175C010008C621D /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C32872175C010008C621D /* ColorHelper.swift */; };
+		446C328A2175C689008C621D /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 446C32892175C689008C621D /* test.html */; };
 		447848A9214106E70070B560 /* ProtocolCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447848A8214106E70070B560 /* ProtocolCommand.swift */; };
 		44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44797EA0213D2FC200DDA614 /* AppDelegate.swift */; };
 		44797EB6213D2FC300DDA614 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44797EB5213D2FC300DDA614 /* DemoTests.swift */; };
@@ -109,6 +112,9 @@
 		445E7A35214A04A4006830DC /* DemoNotificationDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNotificationDefine.swift; sourceTree = "<group>"; };
 		445E7A37214A32FF006830DC /* DemoCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCoreDataManager.swift; sourceTree = "<group>"; };
 		44618BA62140D15A004C307B /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		446C32832175B180008C621D /* DemoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoWebViewController.swift; sourceTree = "<group>"; };
+		446C32872175C010008C621D /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		446C32892175C689008C621D /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		447848A8214106E70070B560 /* ProtocolCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCommand.swift; sourceTree = "<group>"; };
 		44797E9D213D2FC200DDA614 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44797EA0213D2FC200DDA614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +230,14 @@
 			path = Command;
 			sourceTree = "<group>";
 		};
+		446C327C21757BD5008C621D /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				446C32832175B180008C621D /* DemoWebViewController.swift */,
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
 		44797E94213D2FC200DDA614 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +337,7 @@
 		447D88DB21478F5200FD48FE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				446C32892175C689008C621D /* test.html */,
 				447D88DC21478F5200FD48FE /* Assets.xcassets */,
 				447D88DD21478F5200FD48FE /* LaunchScreen.storyboard */,
 				447D88DF21478F5200FD48FE /* Main.storyboard */,
@@ -337,6 +352,7 @@
 		447D88E421478F5200FD48FE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				446C327C21757BD5008C621D /* WebViewController */,
 				447D88E521478F5200FD48FE /* SearchCourseViewController */,
 				447D88EB21478F5200FD48FE /* HomeViewController */,
 				447D88E921478F5200FD48FE /* ContainerViewController */,
@@ -433,6 +449,7 @@
 			children = (
 				44C94AA021424A41003DDA45 /* StringHelper.swift */,
 				44811381214F9B8500FAE54C /* ErrorExtension.swift */,
+				446C32872175C010008C621D /* ColorHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -566,6 +583,7 @@
 				447D88F321478F5300FD48FE /* Main.storyboard in Resources */,
 				447D88F421478F5300FD48FE /* SearchCourse.storyboard in Resources */,
 				447D88F121478F5300FD48FE /* Assets.xcassets in Resources */,
+				446C328A2175C689008C621D /* test.html in Resources */,
 				447D88F521478F5300FD48FE /* Info.plist in Resources */,
 				441E12D02151E260008D30A2 /* Readme in Resources */,
 				447D88F221478F5300FD48FE /* LaunchScreen.storyboard in Resources */,
@@ -660,6 +678,7 @@
 				447B73962142139100298EF6 /* DemoPackDefine.swift in Sources */,
 				447D88FC21478F5300FD48FE /* CourseKeyTableItem.swift in Sources */,
 				4481137C214F934200FAE54C /* SwiftNotice.swift in Sources */,
+				446C32842175B180008C621D /* DemoWebViewController.swift in Sources */,
 				447848A9214106E70070B560 /* ProtocolCommand.swift in Sources */,
 				445E6B142150E52D00FD3EF1 /* ImageViewExtension.swift in Sources */,
 				44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */,
@@ -680,6 +699,7 @@
 				445A96632148C42F002B06C7 /* CourseKeyCellItem.swift in Sources */,
 				445A967221490897002B06C7 /* CourseKeyEntity+CoreDataProperties.swift in Sources */,
 				445E6B1C2151326200FD3EF1 /* DemoErrorDefine.swift in Sources */,
+				446C32882175C010008C621D /* ColorHelper.swift in Sources */,
 				44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */,
 				4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */,
 				445A965C2148BAF5002B06C7 /* ClearCourseKeyRequest.swift in Sources */,

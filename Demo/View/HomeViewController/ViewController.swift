@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     var clearButton : UIButton = UIButton(type: UIButtonType.system)
     weak var searchCourseViewItem : SearchCourseViewItem?
     weak var courseKeyTableItem : CourseKeyTableItem?
-
+    var otherButton : UIButton?
+    
     var keyListViewController : CourseKeyListViewController?
     @IBOutlet var keyTextField : UITextField?
     
@@ -103,6 +104,14 @@ class ViewController: UIViewController {
             self.view.addSubview(self.keyListViewController!.view)
         }
         
+        //其他
+        let btn = UIButton(type: .custom)
+        btn.setTitle("其他", for: UIControlState.normal)
+        btn.setTitleColor(UIColor(hex: 0xffffff, alpha: 1.0), for: .normal)
+        btn.backgroundColor = UIColor(hex: 0x3385FF, alpha: 1.0)
+        btn.addTarget(self, action: #selector(onClickOther), for: .touchUpInside)
+        self.otherButton = btn
+        self.view.addSubview(btn)
     }
     
     func updateFrame() ->Void
@@ -117,7 +126,12 @@ class ViewController: UIViewController {
         let y : CGFloat = 270
         self.clearButton.frame = CGRect(x: x, y: y, width: w, height: h)
         
-        self.keyListViewController!.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300)
+        let otherButtonHeight : CGFloat = 40
+        
+        self.keyListViewController!.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300 - otherButtonHeight)
+        
+        //其他按钮
+        self.otherButton?.frame = CGRect(x: 0, y: height - otherButtonHeight, width: width, height: otherButtonHeight)
     }
     
     func addNotifications()
@@ -166,6 +180,12 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func onClickOther()
+    {
+        let vc = DemoWebViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func onClickKeyItem(params:Array<Any>)

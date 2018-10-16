@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>H5页面</title>
+</head>
+<body>
+  <h1 align="center">JS-iOS互调测试</h1>
+  <script type="text/javascript">
+    // JS 调用 iOS
+    function callIOS() {
+      try {
+        var jsonText = "Hello, Swift! I'm a JavaScript function."
+        webkit.messageHandlers.DemoNativeHandler.postMessage(jsonText);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+    // iOS 调用 JS
+    function onResult(x,y) {
+      
+      var sum = x + y;
+      
+      return sum
+    }
+  
+  </script>
+  <button align="center" style="text-align:center;height:50px;width:200px;font-size:30px;" onclick="callIOS()">调用iOS</button>
+</body>
+</html>

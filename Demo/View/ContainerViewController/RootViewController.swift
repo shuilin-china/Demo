@@ -43,12 +43,10 @@ class RootViewController: UIViewController, UINavigationControllerDelegate {
         if let vc = viewController as? ViewController
         {
             self.currentRoot?.setNavigationBarHidden(true, animated: true)
-            //self.navigationController?.isNavigationBarHidden = true
         }
-        else if let vc = viewController as? SearchCourseViewController
+        else
         {
             self.currentRoot?.setNavigationBarHidden(false, animated: true)
-            //self.navigationController?.isNavigationBarHidden = false
         }
     }
 
