@@ -80,7 +80,7 @@ class DemoWebViewController: UIViewController , WKScriptMessageHandler {
             
             if let sum = data
             {
-                print(sum)
+                print("JS calc result = \(sum)")
             }
             
             if error != nil
