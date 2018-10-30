@@ -12,17 +12,49 @@ class ManagedMusicPlayer: MusicPlayer, ManagedAudioPlayer {
 
     override func start() {
         
+        AudioPlayerStateManager.sharedInstance.startPlayer(player: self)
     }
     
     override func stop() {
     
+        AudioPlayerStateManager.sharedInstance.stopPlayer(player: self)
     }
     
-    func managedStart() {
+    func managedStart(manager:AudioPlayerManager) {
         
+        if let temp = manager as? AudioPlayerStateManager {
+            if temp == AudioPlayerStateManager.sharedInstance{
+                
+                //再检查条件
+                AudioPlayerConditionManager.sharedInstance.startPlayer(player: self)
+            }
+            
+        }
+        else if let temp = manager as? AudioPlayerConditionManager {
+            if temp == AudioPlayerConditionManager.sharedInstance{
+                
+                super.start()
+            }
+            
+        }
     }
     
-    func managedStop() {
+    func managedStop(manager:AudioPlayerManager) {
+        if let temp = manager as? AudioPlayerStateManager {
+            if temp == AudioPlayerStateManager.sharedInstance{
+                
+                //再检查条件
+                AudioPlayerConditionManager.sharedInstance.stopPlayer(player: self)
+            }
+            
+        }
+        else if let temp = manager as? AudioPlayerConditionManager {
+            if temp == AudioPlayerConditionManager.sharedInstance{
+                
+                super.stop()
+            }
+            
+        }
         
     }
 }

@@ -67,12 +67,14 @@
 		4481137E214F93B000FAE54C /* HudRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481137D214F93B000FAE54C /* HudRequest.swift */; };
 		44811382214F9B8500FAE54C /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811381214F9B8500FAE54C /* ErrorExtension.swift */; };
 		44811384214FCE8D00FAE54C /* PullViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44811383214FCE8D00FAE54C /* PullViewRequest.swift */; };
+		4487D433218863DE0049A0CF /* AudioPlayerConditionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4487D432218863DE0049A0CF /* AudioPlayerConditionManager.swift */; };
 		44917847215B818500D1E283 /* SearchCourseCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */; };
 		44917849215B822E00D1E283 /* SearchCourseRectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44917848215B822E00D1E283 /* SearchCourseRectItem.swift */; };
 		4491784B215B848200D1E283 /* SearchCourseViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784A215B848200D1E283 /* SearchCourseViewItem.swift */; };
 		4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */; };
 		4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */; };
 		44988985216F66FF00EA91FC /* HeadWaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */; };
+		44B3C2492186D8E100FD7095 /* AudioPlayerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B3C2482186D8E100FD7095 /* AudioPlayerStateManager.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,12 +164,14 @@
 		4481137D214F93B000FAE54C /* HudRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudRequest.swift; sourceTree = "<group>"; };
 		44811381214F9B8500FAE54C /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		44811383214FCE8D00FAE54C /* PullViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullViewRequest.swift; sourceTree = "<group>"; };
+		4487D432218863DE0049A0CF /* AudioPlayerConditionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerConditionManager.swift; sourceTree = "<group>"; };
 		44917846215B818500D1E283 /* SearchCourseCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionItem.swift; sourceTree = "<group>"; };
 		44917848215B822E00D1E283 /* SearchCourseRectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseRectItem.swift; sourceTree = "<group>"; };
 		4491784A215B848200D1E283 /* SearchCourseViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseViewItem.swift; sourceTree = "<group>"; };
 		4491784C215B9EA500D1E283 /* SearchCourseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionViewController.swift; sourceTree = "<group>"; };
 		4491784E215B9ED000D1E283 /* SearchCourseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseCollectionCell.swift; sourceTree = "<group>"; };
 		44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadWaterFallRectList.swift; sourceTree = "<group>"; };
+		44B3C2482186D8E100FD7095 /* AudioPlayerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStateManager.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FBEB416D611949F5F07A6E68 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +211,8 @@
 				44259F6921833D7100070F35 /* MusicPlayer.swift */,
 				44259F6B21833F0300070F35 /* ManagedMusicPlayer.swift */,
 				44259F6D21833FEE00070F35 /* AudioPlayerManager.swift */,
+				44B3C2482186D8E100FD7095 /* AudioPlayerStateManager.swift */,
+				4487D432218863DE0049A0CF /* AudioPlayerConditionManager.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -703,12 +709,14 @@
 				44259F6A21833D7100070F35 /* MusicPlayer.swift in Sources */,
 				447B73962142139100298EF6 /* DemoPackDefine.swift in Sources */,
 				447D88FC21478F5300FD48FE /* CourseKeyTableItem.swift in Sources */,
+				44B3C2492186D8E100FD7095 /* AudioPlayerStateManager.swift in Sources */,
 				4481137C214F934200FAE54C /* SwiftNotice.swift in Sources */,
 				446C32842175B180008C621D /* DemoWebViewController.swift in Sources */,
 				447848A9214106E70070B560 /* ProtocolCommand.swift in Sources */,
 				445E6B142150E52D00FD3EF1 /* ImageViewExtension.swift in Sources */,
 				44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */,
 				447D88FA21478F5300FD48FE /* ViewController.swift in Sources */,
+				4487D433218863DE0049A0CF /* AudioPlayerConditionManager.swift in Sources */,
 				445E6B122150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift in Sources */,
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				44259F6C21833F0300070F35 /* ManagedMusicPlayer.swift in Sources */,

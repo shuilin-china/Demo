@@ -34,12 +34,3 @@ class AudioPlayer: NSObject {
     }
 }
 
-//可控制的播放器
-protocol ManagedAudioPlayer {
-    
-    //被管理器控制后的start
-    func managedStart()
-    
-    //被管理器控制后的stop
-    func managedStop()
-}

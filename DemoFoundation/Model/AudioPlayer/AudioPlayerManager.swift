@@ -8,15 +8,23 @@
 
 import UIKit
 
-class AudioPlayerManager: NSObject {
+//可被管理的播放器
+protocol ManagedAudioPlayer {
     
-    static let sharedInstance = AudioPlayerManager()
+    //被管理器控制后的start
+    func managedStart(manager:AudioPlayerManager)
+    
+    //被管理器控制后的stop
+    func managedStop(manager:AudioPlayerManager)
+}
 
+
+//播放管理器接口
+protocol AudioPlayerManager {
+    
     func startPlayer(player : AudioPlayer & ManagedAudioPlayer)
-    {
-        player.stop()
-        player.managedStop()
-    }
+    
+    func stopPlayer(player : AudioPlayer & ManagedAudioPlayer)
 }
 
 
