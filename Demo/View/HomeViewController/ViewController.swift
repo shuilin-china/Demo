@@ -112,14 +112,15 @@ class ViewController: UIViewController {
         btn.addTarget(self, action: #selector(onClickOther), for: .touchUpInside)
         self.otherButton = btn
         self.view.addSubview(btn)
+
     }
     
     func updateFrame() ->Void
     {
-        let rect : CGRect = self.view.bounds
+        let rect = self.view.bounds
         let width : CGFloat = rect.size.width
         let height : CGFloat = rect.size.height
-        
+
         let w : CGFloat = 60.0
         let h : CGFloat = 30.0
         let x : CGFloat = width - w - 6
@@ -131,7 +132,7 @@ class ViewController: UIViewController {
         self.keyListViewController!.view.frame = CGRect(x: 0, y: 300, width: width, height: height - 300 - otherButtonHeight)
         
         //其他按钮
-        self.otherButton?.frame = CGRect(x: 0, y: height - otherButtonHeight, width: width, height: otherButtonHeight)
+        self.otherButton?.frame = CGRect(x: 0, y: height - otherButtonHeight - dangerBottom(view: self.view), width: width, height: otherButtonHeight)
     }
     
     func addNotifications()

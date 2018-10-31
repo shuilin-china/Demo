@@ -10,6 +10,8 @@ import UIKit
 
 class EditOrderTableViewController: UITableViewController {
 
+    var item : EditOrderItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

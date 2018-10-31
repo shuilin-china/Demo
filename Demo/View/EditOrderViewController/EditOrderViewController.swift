@@ -9,6 +9,9 @@
 import UIKit
 
 class EditOrderViewController: UIViewController {
+    
+    var item : EditOrderItem?
+    private(set) var tableViewController : EditOrderTableViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,4 +10,8 @@ import UIKit
 
 class EditOrderCellItem: NSObject {
 
+    var info : EditOrderInfo?
+    
+    var height : CGFloat = 30
+    var hidden : Bool = false
 }

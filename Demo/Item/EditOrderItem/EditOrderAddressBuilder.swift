@@ -1,5 +1,5 @@
 //
-//  EditOrder.swift
+//  EditOrderAddressBuilder.swift
 //  Demo
 //
 //  Created by Foryou on 2018/10/31.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-//编辑订单数据模型
-class EditOrder: NSObject {
+//订单地址富文本建造器
+class EditOrderAddressBuilder: NSObject {
 
 }
