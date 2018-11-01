@@ -15,6 +15,10 @@
 		44259F6C21833F0300070F35 /* ManagedMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44259F6B21833F0300070F35 /* ManagedMusicPlayer.swift */; };
 		44259F6E21833FEE00070F35 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44259F6D21833FEE00070F35 /* AudioPlayerManager.swift */; };
 		442B1116216F3DA700A39FA2 /* SearchCourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B1115216F3DA700A39FA2 /* SearchCourseHeaderView.swift */; };
+		4438C434218ACAF200A37C3B /* NewEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C433218ACAF200A37C3B /* NewEditOrderItem.swift */; };
+		4438C436218ACBA600A37C3B /* OldEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C435218ACBA600A37C3B /* OldEditOrderItem.swift */; };
+		4438C438218ACBC500A37C3B /* IDEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C437218ACBC500A37C3B /* IDEditOrderItem.swift */; };
+		4438C43A218ACEF100A37C3B /* EditOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C439218ACEF100A37C3B /* EditOrderInfo.swift */; };
 		444A4F78213E734E00FBCEFD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444A4F77213E734E00FBCEFD /* Alamofire.framework */; };
 		44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B32216DE850003ECE5D /* FCFlowLayout.swift */; };
 		44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */; };
@@ -78,8 +82,9 @@
 		4495AAEC21897A3C00D49A86 /* SearchCourseViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAE321897A3C00D49A86 /* SearchCourseViewItem.swift */; };
 		4495AAED21897A3C00D49A86 /* CourseKeyCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAE421897A3C00D49A86 /* CourseKeyCellItem.swift */; };
 		4495AAEF21897C5000D49A86 /* EditOrderAddressBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAEE21897C5000D49A86 /* EditOrderAddressBuilder.swift */; };
-		4495AAF121898D4400D49A86 /* EditOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAF021898D4400D49A86 /* EditOrderInfo.swift */; };
 		4495AAF321898DE000D49A86 /* SubmitOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAF221898DE000D49A86 /* SubmitOrderRequest.swift */; };
+		4495AAF52189AFB100D49A86 /* RichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAF42189AFB100D49A86 /* RichTextView.swift */; };
+		4495AAF82189B23A00D49A86 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495AAF72189B23A00D49A86 /* TextViewController.swift */; };
 		44988985216F66FF00EA91FC /* HeadWaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */; };
 		44B3C2492186D8E100FD7095 /* AudioPlayerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B3C2482186D8E100FD7095 /* AudioPlayerStateManager.swift */; };
 		44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94AA021424A41003DDA45 /* StringHelper.swift */; };
@@ -112,6 +117,10 @@
 		44259F6B21833F0300070F35 /* ManagedMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedMusicPlayer.swift; sourceTree = "<group>"; };
 		44259F6D21833FEE00070F35 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		442B1115216F3DA700A39FA2 /* SearchCourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCourseHeaderView.swift; sourceTree = "<group>"; };
+		4438C433218ACAF200A37C3B /* NewEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditOrderItem.swift; sourceTree = "<group>"; };
+		4438C435218ACBA600A37C3B /* OldEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldEditOrderItem.swift; sourceTree = "<group>"; };
+		4438C437218ACBC500A37C3B /* IDEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEditOrderItem.swift; sourceTree = "<group>"; };
+		4438C439218ACEF100A37C3B /* EditOrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderInfo.swift; sourceTree = "<group>"; };
 		444A4F75213E72E100FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A4F77213E734E00FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44594B32216DE850003ECE5D /* FCFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFlowLayout.swift; sourceTree = "<group>"; };
@@ -182,8 +191,9 @@
 		4495AAE321897A3C00D49A86 /* SearchCourseViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCourseViewItem.swift; sourceTree = "<group>"; };
 		4495AAE421897A3C00D49A86 /* CourseKeyCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseKeyCellItem.swift; sourceTree = "<group>"; };
 		4495AAEE21897C5000D49A86 /* EditOrderAddressBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderAddressBuilder.swift; sourceTree = "<group>"; };
-		4495AAF021898D4400D49A86 /* EditOrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderInfo.swift; sourceTree = "<group>"; };
 		4495AAF221898DE000D49A86 /* SubmitOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitOrderRequest.swift; sourceTree = "<group>"; };
+		4495AAF42189AFB100D49A86 /* RichTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
+		4495AAF72189B23A00D49A86 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		44988984216F66FF00EA91FC /* HeadWaterFallRectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadWaterFallRectList.swift; sourceTree = "<group>"; };
 		44B3C2482186D8E100FD7095 /* AudioPlayerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStateManager.swift; sourceTree = "<group>"; };
 		44C94AA021424A41003DDA45 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
@@ -396,6 +406,7 @@
 		447D88E421478F5200FD48FE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4495AAF62189B22200D49A86 /* TextViewController */,
 				4495AAD12189783C00D49A86 /* EditOrderViewController */,
 				446C327C21757BD5008C621D /* WebViewController */,
 				447D88E521478F5200FD48FE /* SearchCourseViewController */,
@@ -454,6 +465,7 @@
 				4481137D214F93B000FAE54C /* HudRequest.swift */,
 				44811383214FCE8D00FAE54C /* PullViewRequest.swift */,
 				445E6B132150E52D00FD3EF1 /* ImageViewExtension.swift */,
+				4495AAF42189AFB100D49A86 /* RichTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,10 +506,13 @@
 		4495AADA21897A3C00D49A86 /* EditOrderItem */ = {
 			isa = PBXGroup;
 			children = (
+				4438C439218ACEF100A37C3B /* EditOrderInfo.swift */,
 				4495AADB21897A3C00D49A86 /* EditOrderItem.swift */,
 				4495AADC21897A3C00D49A86 /* EditOrderCellItem.swift */,
 				4495AAEE21897C5000D49A86 /* EditOrderAddressBuilder.swift */,
-				4495AAF021898D4400D49A86 /* EditOrderInfo.swift */,
+				4438C433218ACAF200A37C3B /* NewEditOrderItem.swift */,
+				4438C435218ACBA600A37C3B /* OldEditOrderItem.swift */,
+				4438C437218ACBC500A37C3B /* IDEditOrderItem.swift */,
 			);
 			path = EditOrderItem;
 			sourceTree = "<group>";
@@ -514,6 +529,14 @@
 				4495AAE321897A3C00D49A86 /* SearchCourseViewItem.swift */,
 			);
 			path = SearchCourseItem;
+			sourceTree = "<group>";
+		};
+		4495AAF62189B22200D49A86 /* TextViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4495AAF72189B23A00D49A86 /* TextViewController.swift */,
+			);
+			path = TextViewController;
 			sourceTree = "<group>";
 		};
 		44B38456216CACBF004E48AF /* Layout */ = {
@@ -770,13 +793,18 @@
 				44C94AA121424A41003DDA45 /* StringHelper.swift in Sources */,
 				447D88FA21478F5300FD48FE /* ViewController.swift in Sources */,
 				4487D433218863DE0049A0CF /* AudioPlayerConditionManager.swift in Sources */,
+				4438C438218ACBC500A37C3B /* IDEditOrderItem.swift in Sources */,
 				445E6B122150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift in Sources */,
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				44259F6C21833F0300070F35 /* ManagedMusicPlayer.swift in Sources */,
+				4438C43A218ACEF100A37C3B /* EditOrderInfo.swift in Sources */,
+				4495AAF52189AFB100D49A86 /* RichTextView.swift in Sources */,
 				447B739B2142139100298EF6 /* SearchCourseRequest.swift in Sources */,
 				4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */,
 				44259F6821833C0000070F35 /* AudioFilePlayer.swift in Sources */,
 				44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */,
+				4438C436218ACBA600A37C3B /* OldEditOrderItem.swift in Sources */,
+				4495AAF82189B23A00D49A86 /* TextViewController.swift in Sources */,
 				4495AAE821897A3C00D49A86 /* SearchCourseCollectionItem.swift in Sources */,
 				44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */,
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,
@@ -794,12 +822,12 @@
 				4495AAD52189786100D49A86 /* EditOrderTableViewController.swift in Sources */,
 				44797EA1213D2FC200DDA614 /* AppDelegate.swift in Sources */,
 				4495AAD32189784B00D49A86 /* EditOrderViewController.swift in Sources */,
-				4495AAF121898D4400D49A86 /* EditOrderInfo.swift in Sources */,
 				4491784D215B9EA500D1E283 /* SearchCourseCollectionViewController.swift in Sources */,
 				445A965C2148BAF5002B06C7 /* ClearCourseKeyRequest.swift in Sources */,
 				44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */,
 				447D88F721478F5300FD48FE /* SearchCourseCell.swift in Sources */,
 				445E7A36214A04A4006830DC /* DemoNotificationDefine.swift in Sources */,
+				4438C434218ACAF200A37C3B /* NewEditOrderItem.swift in Sources */,
 				4495AAEC21897A3C00D49A86 /* SearchCourseViewItem.swift in Sources */,
 				4495AAED21897A3C00D49A86 /* CourseKeyCellItem.swift in Sources */,
 				447B73942142139100298EF6 /* DemoHttpDefine.swift in Sources */,

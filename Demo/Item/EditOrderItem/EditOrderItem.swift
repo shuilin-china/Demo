@@ -8,29 +8,17 @@
 
 import UIKit
 
+
 class EditOrderItem: NSObject {
 
+    //外部不要访问
     var info : EditOrderInfo?
     
     func load(callback:@escaping ResultCallback){
         
-        if let temp = info as? NewEditOrderInfo{
-            
-            self .update()
-        }
-        else if let temp = info as? OldEditOrderInfo{
-            //temp.oldInfo
-            
-            self .update()
-        }
-        else if let temp = info as? IDEditOrderInfo{
-            //temp.ID
-            
-            self .update()
-        }
-        else{
-            callback(nil)
-        }
+        //子类重写
+        
+        callback(nil)
     }
     
     func submit(callback:@escaping ResultCallback){

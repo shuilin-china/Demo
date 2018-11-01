@@ -183,12 +183,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func onClickOther()
-    {
-        let vc = DemoWebViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @objc func onClickKeyItem(params:Array<Any>)
     {
         let item = params[0] as? CourseKeyCellItem
@@ -252,5 +246,11 @@ class ViewController: UIViewController {
         self.reloadKeyListViewController()
     }
     
+    @objc func onClickOther()
+    {
+        //let vc = DemoWebViewController()
+        let vc = TextViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
