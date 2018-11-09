@@ -8,11 +8,17 @@
 
 import UIKit
 
-
 class EditOrderItem: NSObject {
 
-    //外部不要访问
-    var info : EditOrderInfo?
+    private(set) var ctx : EditOrderItemContext?
+    private(set) var cellItems : Array<EditOrderCellItem> = Array()
+    
+    init(ctx : EditOrderItemContext?)
+    {
+        super.init()
+        
+        self.ctx = ctx
+    }
     
     func load(callback:@escaping ResultCallback){
         
@@ -25,7 +31,7 @@ class EditOrderItem: NSObject {
         
         let request : SubmitOrderRequest = SubmitOrderRequest()
         
-        //把info中的值赋给request
+        //把ctx中的值赋给request
         //...
         
         request.send { (error) in
@@ -36,7 +42,27 @@ class EditOrderItem: NSObject {
     
     func update(){
         
-        //根据info构建表项
-        //...
+        //确定表项
+        self.cellItems.removeAll()
+        
+        //根据ctx创建CellItem
+        for i in 0..<self.ctx!.pointInfos.count
+        {
+            let cellItem : EditOrderPointCellItem = EditOrderPointCellItem(ctx: self.ctx)
+            cellItem.index = i
+            cellItem .update()
+            
+            self.cellItems.append(cellItem)
+        }
+        
+        if self.ctx != nil &&  self.ctx!.timeOn
+        {
+            let loadTimeCellItem : EditOrderTimeCellItem = EditOrderTimeCellItem(ctx: self.ctx)
+            loadTimeCellItem.update()
+            
+            self.cellItems.append(loadTimeCellItem)
+        }
+        
+        
     }
 }

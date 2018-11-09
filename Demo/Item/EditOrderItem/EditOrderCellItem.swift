@@ -10,8 +10,114 @@ import UIKit
 
 class EditOrderCellItem: NSObject {
 
-    var info : EditOrderInfo?
-    
     var height : CGFloat = 30
     var hidden : Bool = false
+    
+    func update()
+    {
+        
+    }
+}
+
+class EditOrderTitleValueCellItem: EditOrderCellItem {
+    var title : String?
+    var content : String?
+    var contentColor : UIColor?
+    
+    var clickCommand : ProtocolCommand?{
+        get{
+            return nil
+        }
+    }
+    
+}
+
+
+class EditOrderTimeCellItem : EditOrderTitleValueCellItem {
+
+    private(set) var ctx : EditOrderItemContext?
+    
+    init(ctx : EditOrderItemContext?)
+    {
+        super.init()
+        
+        self.ctx = ctx
+    }
+    
+    override func update()
+    {
+        self.title = "装货时间";
+        
+        if self.isEmpty()
+        {
+            self.content = "请选择"
+            self.contentColor = UIColor.lightGray
+        }
+        else
+        {
+            self.content = String(format: "[%ld]", self.ctx!.loadTimeStamp!)
+            self.contentColor = UIColor.gray
+        }
+        
+        self.height = 50
+    }
+    
+    func isEmpty() -> Bool
+    {
+        return self.ctx?.loadTimeStamp == 0
+    }
+    
+    func setTime(day : String, hour : String)
+    {
+        //self.timeStamp = date?.timeIntervalSince1970
+        
+        let timeStamp = 6
+        self.ctx?.loadTimeStamp = timeStamp
+        
+        self.update()
+    }
+    
+    override var clickCommand: ProtocolCommand?{
+        get{
+            return self.ctx?.loadTimeClickCommand
+        }
+    }
+}
+
+
+//经停点
+class EditOrderPointCellItem : EditOrderCellItem {
+    
+    var text : NSAttributedString?
+    var index : Int = -1
+    
+    var clickCommand : ProtocolCommand? {
+        get{
+            return self.ctx?.pointClickCommand
+        }
+    }
+    
+    private(set) var ctx : EditOrderItemContext?
+    
+    init(ctx : EditOrderItemContext?)
+    {
+        super.init()
+        
+        self.ctx = ctx
+    }
+    
+    override func update()
+    {
+        //创建富文本text
+        if self.ctx != nil && self.ctx!.isPointEmpty(i: self.index)
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    
+    
 }

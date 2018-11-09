@@ -12,7 +12,14 @@ class NewEditOrderItem: EditOrderItem {
 
     override func load(callback: @escaping ResultCallback) {
         
-        self.info = EditOrderInfo()
+        //赋默认值
+        self.ctx?.pointInfos.removeAll()
+        
+        let info : EditOrderPointInfo = EditOrderPointInfo()
+        self.ctx?.pointInfos.append(info)
+        
+        let info2 : EditOrderPointInfo = EditOrderPointInfo()
+        self.ctx?.pointInfos.append(info2)
         
         super.update()
         

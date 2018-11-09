@@ -10,13 +10,11 @@ import UIKit
 
 class OldEditOrderItem: EditOrderItem {
 
-    var oldInfo : Any?
+    var info : Any?
     
     override func load(callback: @escaping ResultCallback) {
         
-        self.info = EditOrderInfo()
-        
-        //把oldInfo值赋给info
+        //把info值赋给ctx
         
         //...
         

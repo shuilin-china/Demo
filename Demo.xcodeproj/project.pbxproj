@@ -18,7 +18,7 @@
 		4438C434218ACAF200A37C3B /* NewEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C433218ACAF200A37C3B /* NewEditOrderItem.swift */; };
 		4438C436218ACBA600A37C3B /* OldEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C435218ACBA600A37C3B /* OldEditOrderItem.swift */; };
 		4438C438218ACBC500A37C3B /* IDEditOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C437218ACBC500A37C3B /* IDEditOrderItem.swift */; };
-		4438C43A218ACEF100A37C3B /* EditOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438C439218ACEF100A37C3B /* EditOrderInfo.swift */; };
+		44416BE22195531700990AC3 /* EditOrderItemContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44416BE12195531700990AC3 /* EditOrderItemContext.swift */; };
 		444A4F78213E734E00FBCEFD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444A4F77213E734E00FBCEFD /* Alamofire.framework */; };
 		44594B33216DE850003ECE5D /* FCFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B32216DE850003ECE5D /* FCFlowLayout.swift */; };
 		44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44594B34216DF1E6003ECE5D /* WaterFallRectList.swift */; };
@@ -120,7 +120,7 @@
 		4438C433218ACAF200A37C3B /* NewEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditOrderItem.swift; sourceTree = "<group>"; };
 		4438C435218ACBA600A37C3B /* OldEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldEditOrderItem.swift; sourceTree = "<group>"; };
 		4438C437218ACBC500A37C3B /* IDEditOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEditOrderItem.swift; sourceTree = "<group>"; };
-		4438C439218ACEF100A37C3B /* EditOrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderInfo.swift; sourceTree = "<group>"; };
+		44416BE12195531700990AC3 /* EditOrderItemContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderItemContext.swift; sourceTree = "<group>"; };
 		444A4F75213E72E100FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A4F77213E734E00FBCEFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44594B32216DE850003ECE5D /* FCFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFlowLayout.swift; sourceTree = "<group>"; };
@@ -506,7 +506,7 @@
 		4495AADA21897A3C00D49A86 /* EditOrderItem */ = {
 			isa = PBXGroup;
 			children = (
-				4438C439218ACEF100A37C3B /* EditOrderInfo.swift */,
+				44416BE12195531700990AC3 /* EditOrderItemContext.swift */,
 				4495AADB21897A3C00D49A86 /* EditOrderItem.swift */,
 				4495AADC21897A3C00D49A86 /* EditOrderCellItem.swift */,
 				4495AAEE21897C5000D49A86 /* EditOrderAddressBuilder.swift */,
@@ -797,7 +797,6 @@
 				445E6B122150CA0100FD3EF1 /* SearchCourseEmptyViewController.swift in Sources */,
 				447B73992142139100298EF6 /* DemoURLManager.swift in Sources */,
 				44259F6C21833F0300070F35 /* ManagedMusicPlayer.swift in Sources */,
-				4438C43A218ACEF100A37C3B /* EditOrderInfo.swift in Sources */,
 				4495AAF52189AFB100D49A86 /* RichTextView.swift in Sources */,
 				447B739B2142139100298EF6 /* SearchCourseRequest.swift in Sources */,
 				4491784F215B9ED000D1E283 /* SearchCourseCollectionCell.swift in Sources */,
@@ -805,6 +804,7 @@
 				44594B35216DF1E6003ECE5D /* WaterFallRectList.swift in Sources */,
 				4438C436218ACBA600A37C3B /* OldEditOrderItem.swift in Sources */,
 				4495AAF82189B23A00D49A86 /* TextViewController.swift in Sources */,
+				44416BE22195531700990AC3 /* EditOrderItemContext.swift in Sources */,
 				4495AAE821897A3C00D49A86 /* SearchCourseCollectionItem.swift in Sources */,
 				44811375214F78B700FAE54C /* AlertViewRequest.swift in Sources */,
 				447B73982142139100298EF6 /* SearchCourseInfo.swift in Sources */,

@@ -16,7 +16,7 @@ class IDEditOrderItem: EditOrderItem {
         
         //根据ID请求数据
         
-        //把请求回来的数据转换成info
+        //把请求回来的数据赋值给ctx
         
         //...
         
