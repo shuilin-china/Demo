@@ -10,14 +10,16 @@ import UIKit
 
 class EditOrderItem: NSObject {
 
-    private(set) var ctx : EditOrderItemContext?
+    private(set) var ctx : EditOrderItemContext
     private(set) var cellItems : Array<EditOrderCellItem> = Array()
+    var clickTimeCommand : ProtocolCommand?
+    var clickPointCommand : ProtocolCommand?
     
-    init(ctx : EditOrderItemContext?)
+    init(ctx : EditOrderItemContext)
     {
-        super.init()
-        
         self.ctx = ctx
+        
+        super.init()
     }
     
     func load(callback:@escaping ResultCallback){
@@ -46,23 +48,28 @@ class EditOrderItem: NSObject {
         self.cellItems.removeAll()
         
         //根据ctx创建CellItem
-        for i in 0..<self.ctx!.pointInfos.count
+        for i in 0..<self.ctx.pointInfos.count
         {
             let cellItem : EditOrderPointCellItem = EditOrderPointCellItem(ctx: self.ctx)
             cellItem.index = i
+            cellItem.clickCommand = self.clickPointCommand
             cellItem .update()
             
             self.cellItems.append(cellItem)
         }
         
-        if self.ctx != nil &&  self.ctx!.timeOn
+        if self.ctx.timeOn
         {
             let loadTimeCellItem : EditOrderTimeCellItem = EditOrderTimeCellItem(ctx: self.ctx)
+            loadTimeCellItem.clickCommand = ProtocolCommand(target: self, selector: #selector(clickedLoadTimeCellItem(params:)))
             loadTimeCellItem.update()
             
             self.cellItems.append(loadTimeCellItem)
         }
-        
-        
+    }
+    
+    @objc func clickedLoadTimeCellItem(params : Array<Any>)
+    {
+        self.clickTimeCommand?.execute([nil])
     }
 }

@@ -16,20 +16,14 @@ class EditOrderPointInfo : NSObject {
     var mobile : String = ""
 }
 
-//存储一个页面的状态，以及参数传递
+//存储一个页面的状态以传递这些状态
 class EditOrderItemContext: NSObject, NSCopying {
 
     //装货时间
-    var loadTimeStamp : NSInteger?
-    
-    //装货时间点击事件
-    var loadTimeClickCommand : ProtocolCommand?
+    var loadTimeStamp : NSInteger = 0
     
     //经停点信息
     var pointInfos : Array<EditOrderPointInfo> = Array()
-    
-    //经停点点击事件
-    var pointClickCommand : ProtocolCommand?
     
     //时效要求开关
     var timeOn : Bool = false
@@ -40,11 +34,15 @@ class EditOrderItemContext: NSObject, NSCopying {
         let object = EditOrderItemContext()
 
         object.loadTimeStamp = self.loadTimeStamp
-        object.loadTimeClickCommand = self.loadTimeClickCommand
         
         //...
 
         return object
+    }
+    
+    func isLoadTimeEmpty() -> Bool
+    {
+        return self.loadTimeStamp == 0
     }
     
     func isPointEmpty(i : Int) -> Bool

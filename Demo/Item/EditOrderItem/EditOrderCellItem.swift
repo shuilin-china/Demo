@@ -24,63 +24,47 @@ class EditOrderTitleValueCellItem: EditOrderCellItem {
     var content : String?
     var contentColor : UIColor?
     
-    var clickCommand : ProtocolCommand?{
-        get{
-            return nil
-        }
-    }
-    
+    var clickCommand : ProtocolCommand?
 }
 
 
 class EditOrderTimeCellItem : EditOrderTitleValueCellItem {
 
-    private(set) var ctx : EditOrderItemContext?
+    private(set) var ctx : EditOrderItemContext
     
-    init(ctx : EditOrderItemContext?)
+    init(ctx : EditOrderItemContext)
     {
-        super.init()
-        
         self.ctx = ctx
+        
+        super.init()
     }
     
     override func update()
     {
         self.title = "装货时间";
         
-        if self.isEmpty()
+        if self.ctx.isLoadTimeEmpty()
         {
             self.content = "请选择"
             self.contentColor = UIColor.lightGray
         }
         else
         {
-            self.content = String(format: "[%ld]", self.ctx!.loadTimeStamp!)
+            self.content = String(format: "[%ld]", self.ctx.loadTimeStamp)
             self.contentColor = UIColor.gray
         }
         
         self.height = 50
     }
     
-    func isEmpty() -> Bool
-    {
-        return self.ctx?.loadTimeStamp == 0
-    }
-    
     func setTime(day : String, hour : String)
     {
         //self.timeStamp = date?.timeIntervalSince1970
         
-        let timeStamp = 6
-        self.ctx?.loadTimeStamp = timeStamp
+        let timeStamp = 60000
+        self.ctx.loadTimeStamp = timeStamp
         
         self.update()
-    }
-    
-    override var clickCommand: ProtocolCommand?{
-        get{
-            return self.ctx?.loadTimeClickCommand
-        }
     }
 }
 
@@ -91,25 +75,21 @@ class EditOrderPointCellItem : EditOrderCellItem {
     var text : NSAttributedString?
     var index : Int = -1
     
-    var clickCommand : ProtocolCommand? {
-        get{
-            return self.ctx?.pointClickCommand
-        }
-    }
+    var clickCommand : ProtocolCommand?
     
-    private(set) var ctx : EditOrderItemContext?
+    private(set) var ctx : EditOrderItemContext
     
-    init(ctx : EditOrderItemContext?)
+    init(ctx : EditOrderItemContext)
     {
-        super.init()
-        
         self.ctx = ctx
+        
+        super.init()
     }
     
     override func update()
     {
         //创建富文本text
-        if self.ctx != nil && self.ctx!.isPointEmpty(i: self.index)
+        if self.ctx.isPointEmpty(i: self.index)
         {
             
         }
@@ -118,6 +98,4 @@ class EditOrderPointCellItem : EditOrderCellItem {
             
         }
     }
-    
-    
 }
