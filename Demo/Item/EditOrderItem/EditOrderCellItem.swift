@@ -30,31 +30,28 @@ class EditOrderTitleValueCellItem: EditOrderCellItem {
 
 class EditOrderTimeCellItem : EditOrderTitleValueCellItem {
 
-    private(set) var ctx : EditOrderItemContext
-    
-    init(ctx : EditOrderItemContext)
-    {
-        self.ctx = ctx
-        
-        super.init()
-    }
+    var order : EditOrder?
     
     override func update()
     {
         self.title = "装货时间";
         
-        if self.ctx.isLoadTimeEmpty()
+        if let order = self.order
         {
-            self.content = "请选择"
-            self.contentColor = UIColor.lightGray
+            if order.isLoadTimeEmpty()
+            {
+                self.content = "请选择"
+                self.contentColor = UIColor.lightGray
+            }
+            else
+            {
+                self.content = String(format: "[%ld]", order.loadTimeStamp)
+                self.contentColor = UIColor.gray
+            }
+            
+            self.height = 50
         }
-        else
-        {
-            self.content = String(format: "[%ld]", self.ctx.loadTimeStamp)
-            self.contentColor = UIColor.gray
-        }
-        
-        self.height = 50
+    
     }
     
     func setTime(day : String, hour : String)
@@ -62,7 +59,7 @@ class EditOrderTimeCellItem : EditOrderTitleValueCellItem {
         //self.timeStamp = date?.timeIntervalSince1970
         
         let timeStamp = 60000
-        self.ctx.loadTimeStamp = timeStamp
+        self.order?.loadTimeStamp = timeStamp
         
         self.update()
     }
@@ -77,25 +74,22 @@ class EditOrderPointCellItem : EditOrderCellItem {
     
     var clickCommand : ProtocolCommand?
     
-    private(set) var ctx : EditOrderItemContext
-    
-    init(ctx : EditOrderItemContext)
-    {
-        self.ctx = ctx
-        
-        super.init()
-    }
+    var order : EditOrder?
     
     override func update()
     {
         //创建富文本text
-        if self.ctx.isPointEmpty(i: self.index)
+        if let order = self.order
         {
-            
+            if order.isPointEmpty(i: self.index)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
-        else
-        {
-            
-        }
+        
     }
 }

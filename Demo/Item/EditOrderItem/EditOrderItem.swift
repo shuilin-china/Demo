@@ -10,36 +10,30 @@ import UIKit
 
 class EditOrderItem: NSObject {
 
-    private(set) var ctx : EditOrderItemContext
+    var order : EditOrder?
     private(set) var cellItems : Array<EditOrderCellItem> = Array()
     var clickTimeCommand : ProtocolCommand?
     var clickPointCommand : ProtocolCommand?
     
-    init(ctx : EditOrderItemContext)
-    {
-        self.ctx = ctx
-        
-        super.init()
-    }
-    
     func load(callback:@escaping ResultCallback){
         
-        //子类重写
-        
-        callback(nil)
+        self.order?.load(callback: { (error) in
+            
+            if error == nil
+            {
+                self.update()
+            }
+            
+            callback(error)
+        })
     }
     
     func submit(callback:@escaping ResultCallback){
         
-        let request : SubmitOrderRequest = SubmitOrderRequest()
-        
-        //把ctx中的值赋给request
-        //...
-        
-        request.send { (error) in
+        self.order?.submit(callback: { (error) in
             
             callback(error)
-        }
+        })
     }
     
     func update(){
@@ -48,24 +42,31 @@ class EditOrderItem: NSObject {
         self.cellItems.removeAll()
         
         //根据ctx创建CellItem
-        for i in 0..<self.ctx.pointInfos.count
+        
+        if let order = self.order
         {
-            let cellItem : EditOrderPointCellItem = EditOrderPointCellItem(ctx: self.ctx)
-            cellItem.index = i
-            cellItem.clickCommand = self.clickPointCommand
-            cellItem .update()
+            for i in 0..<order.points.count
+            {
+                let cellItem : EditOrderPointCellItem = EditOrderPointCellItem()
+                cellItem.order = order
+                cellItem.index = i
+                cellItem.clickCommand = self.clickPointCommand
+                cellItem .update()
+                
+                self.cellItems.append(cellItem)
+            }
             
-            self.cellItems.append(cellItem)
+            if order.timeOn
+            {
+                let loadTimeCellItem : EditOrderTimeCellItem = EditOrderTimeCellItem()
+                loadTimeCellItem.order = order
+                loadTimeCellItem.clickCommand = ProtocolCommand(target: self, selector: #selector(clickedLoadTimeCellItem(params:)))
+                loadTimeCellItem.update()
+                
+                self.cellItems.append(loadTimeCellItem)
+            }
         }
         
-        if self.ctx.timeOn
-        {
-            let loadTimeCellItem : EditOrderTimeCellItem = EditOrderTimeCellItem(ctx: self.ctx)
-            loadTimeCellItem.clickCommand = ProtocolCommand(target: self, selector: #selector(clickedLoadTimeCellItem(params:)))
-            loadTimeCellItem.update()
-            
-            self.cellItems.append(loadTimeCellItem)
-        }
     }
     
     @objc func clickedLoadTimeCellItem(params : Array<Any>)
