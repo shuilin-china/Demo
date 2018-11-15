@@ -2,7 +2,7 @@
 //  EditOrder.swift
 //  Demo
 //
-//  Created by Foryou on 2018/11/13.
+//  Created by Foryou on 2018/11/15.
 //  Copyright © 2018年 Foryou. All rights reserved.
 //
 
@@ -16,8 +16,8 @@ class EditOrderPoint : NSObject {
     var mobile : String = ""
 }
 
-class EditOrder: NSObject, NSCopying{
-
+class EditOrder: NSObject, NSCopying {
+    
     //装货时间
     var loadTimeStamp : NSInteger = 0
     
@@ -65,25 +65,22 @@ class EditOrder: NSObject, NSCopying{
         return nil
     }
     
+    //行为
+    var loadRequest : LoadEditOrderRequest = NewEditOrderRequest()
+    var submitRequest : SubmitEditOrderRequest = SubmitEditOrderRequest()
+    
     func load(callback: @escaping ResultCallback)
     {
-        //子类实现
-        
-        callback(nil)
-    }
-    
-    func submit(callback:@escaping ResultCallback){
-        
-        let request : SubmitOrderRequest = SubmitOrderRequest()
-        
-        //把self中的值赋给request
-        //...
-        
-        request.send { (error) in
-            
+        self.loadRequest.send(order: self) { (error) in
             callback(error)
         }
     }
     
-    
+    func submit(callback:@escaping ResultCallback){
+        
+        self.submitRequest.send(order: self) { (error) in
+            
+            callback(error)
+        }
+    }
 }

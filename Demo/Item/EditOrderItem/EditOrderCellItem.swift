@@ -87,8 +87,10 @@ class EditOrderPointCellItem : EditOrderCellItem {
             }
             else
             {
-                
+                let point = order.point(i: self.index)
             }
+            
+            self.height = 80
         }
         
     }
